@@ -36,4 +36,4 @@
 ## 其他
 
 - Push 用 HTTPS + gh credential helper，active 帳號須為 `stoneshih99`（SSH 會認到無寫入權的 stone1001f）。
-- 前身是三個獨立 repo（sg-game-dev-skills / sg-unity-dev-skills / sg-dev-skills），2026-07-24 合併為本 monorepo，舊 repo 已 archive 唯讀。
+- 前身是三個獨立 repo（sg-game-dev-skills / sg-unity-dev-skills / sg-dev-skills），2026-07-24 合併為本 monorepo，舊三 repo 已刪除。

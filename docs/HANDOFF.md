@@ -20,8 +20,8 @@
 
 - 結構：`plugins/<x>/` 各是完整 plugin（自己的 plugin.json + skills/），頂層一個 `marketplace.json` 列三個 plugin（source 指向 plugins/*）。
 - **關鍵技術現實**：安裝後每個 plugin 各自獨立快取，**跨 plugin 相對連結會斷**——跨 plugin 一律文字提及。monorepo 的真好處是：一份 CONVENTIONS、一張 TOPIC-MAP、一套 check-links、原子跨 plugin commit、一個 marketplace 一次加。
-- 舊三 repo（github.com/stoneshih99/sg-{game-dev,unity-dev,dev}-skills）已 archive 唯讀。
-- 全新單一 git 歷史（未保留三 repo 舊 commit；舊歷史留在 archived repo）。
+- 舊三 repo（github.com/stoneshih99/sg-{game-dev,unity-dev,dev}-skills）已刪除。
+- 全新單一 git 歷史（未保留三 repo 舊 commit；舊 repo 刪除後歷史不再保存）。
 
 ## Router 結論（跨 plugin 觸發）
 
@@ -37,8 +37,8 @@
 
 ## 待辦
 
-- [x] 三 repo 合併為 sg-skills monorepo，連結檢查 0 斷鏈、validate 通過（2026-07-24）。
-- [ ] 舊三 repo 在 GitHub archive 唯讀 + README 指向 sg-skills。
+- [x] 三 repo 合併為 sg-skills monorepo，連結檢查 0 斷鏈、validate 通過、實裝 sonnet probe 5/5（2026-07-24）。
+- [x] 舊三 repo 已刪除（2026-07-24）。
 - [ ] 各 plugin 依實戰回饋擴充 references（game-dev 無既定候選；dev 候選：通用除錯方法論、regex、CLI 工具）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
