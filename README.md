@@ -49,8 +49,18 @@ Skill 把預設值換掉——從「能跑就好」換成「照這套標準做�
     │   ├── CONVENTIONS.md   # 三 plugin 共用的撰寫規範
     │   ├── TOPIC-MAP.md     # 主題歸屬總表（防重複設計）
     │   └── HANDOFF.md       # 交接 / 專案狀態
-    └── scripts/check-links.py
+    └── scripts/
+        ├── check-links.py   # 全 monorepo 連結檢查
+        └── hooks/pre-commit # commit 前自動驗證
 
 ## 新增 / 修改 skill
 
 撰寫規範見 [docs/CONVENTIONS.md](docs/CONVENTIONS.md)；寫新內容前先查 [docs/TOPIC-MAP.md](docs/TOPIC-MAP.md) 確認歸屬、避免跨 plugin 重複。
+
+## 驗證（pre-commit hook）
+
+commit 前自動跑連結檢查 + `claude plugin validate`，斷鏈或驗證失敗就擋下。**clone 後跑一次掛上**：
+
+    git config core.hooksPath scripts/hooks
+
+（`core.hooksPath` 是本機設定、不隨 commit 走，故重 clone 需重掛；略過檢查用 `git commit --no-verify`。）
