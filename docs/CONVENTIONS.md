@@ -36,7 +36,7 @@ description 是**使用者會說出口的話**，不是目錄——「讀哪一�
 - **SKILL.md 輕薄**：frontmatter `description`（繁中、做什麼+何時用、≤1536 字元）+ 域總表 + 家族細表。細節一律下放 references。
 - **references 漸進式揭露**：一檔一主題，檔名 kebab-case 語意化並帶家族前綴。
 - **reference 組織**：「決策/何時用 → 選型對照（A vs B）→ 偽代碼/指令範例 → 坑」，末附速查。
-- **偽代碼語言**：game-dev 引擎中立、unity 用實際 C#、dev 用實際 shell。內文一律繁體中文。
+- **範例語言**：game-dev 偽代碼引擎中立、unity 用實際 C#；dev 依 hub——git/shell/cli 用實際指令，clean-code/debug/regex 語言中立（範例可用任一常見語言，不綁定）。內文一律繁體中文。
 
 ## cross-link 規則
 
