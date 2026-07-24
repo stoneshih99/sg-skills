@@ -23,6 +23,14 @@
 - 舊三 repo（github.com/stoneshih99/sg-{game-dev,unity-dev,dev}-skills）已刪除。
 - 全新單一 git 歷史（未保留三 repo 舊 commit；舊 repo 刪除後歷史不再保存）。
 
+## 驗證自動化（pre-commit hook）
+
+改動後必跑的檢查已由 pre-commit hook 強制執行（「機器可查的進 hook」）：
+
+- **`scripts/hooks/pre-commit`**（版控追蹤）：commit 前自動跑 `check-links.py` + `claude plugin validate .`，斷鏈或驗證失敗就擋下 commit。`claude` 不在 PATH 時自動略過 validate、連結檢查照跑。
+- **掛法靠 `core.hooksPath`**（非 `.git/hooks/`，故進版控、重 clone 也在）。**重 clone 後跑一次**：`git config core.hooksPath scripts/hooks`。略過檢查用 `git commit --no-verify`。
+- 兩條路徑都測過：正常 commit 通過、故意斷鏈 exit 1 擋下。
+
 ## Router 結論（跨 plugin 觸發）
 
 三 plugin 共存**不需額外 router 層**——Claude Code 的 skill description 觸發本身就是 router。精準靠「description 邊界切乾淨 + 重疊詞用層區隔」。headless probe 驗證：跨 plugin 邊界全對、unity 三 hub sonnet 7/7、dev git vs shell sonnet 6/6。**相似 hub 用 sonnet 探測，別用 haiku**（haiku 對相同 query 會給不一致答案，曾誤導判斷）。
@@ -39,9 +47,10 @@
 
 - [x] 三 repo 合併為 sg-skills monorepo，連結檢查 0 斷鏈、validate 通過、實裝 sonnet probe 5/5（2026-07-24）。
 - [x] 舊三 repo 已刪除（2026-07-24）。
+- [x] pre-commit hook 自動化連結檢查 + validate（2026-07-24）。
 - [ ] 各 plugin 依實戰回饋擴充 references（game-dev 無既定候選；dev 候選：通用除錯方法論、regex、CLI 工具）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
 ## 相關文件（歷史紀錄，重構時不回改）
 
-- 各 plugin 原設計 spec/plan 留在各自 archived repo 的 `docs/superpowers/`。
+- 各 plugin 原設計 spec/plan 未遷入 monorepo；舊 repo 已刪除，僅存於本機舊資料夾（如 `../sg-game-dev-skill/docs/superpowers/`）。
