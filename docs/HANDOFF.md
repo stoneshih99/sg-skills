@@ -10,9 +10,9 @@
 |--------|------|------|------|
 | **sg-game-dev-skills**（plugins/game-dev） | 0.21.3 | 5 hub / 80 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/unity-dev） | 0.11.0 | 3 hub / 31 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
-| **sg-dev-skills**（plugins/dev） | 0.2.0 | 2 hub / 10 篇 | 通用工程（不限遊戲）。git / shell |
+| **sg-dev-skills**（plugins/dev） | 0.3.0 | 3 hub / 13 篇 | 通用工程（不限遊戲）。git / shell / Clean Code |
 
-合計 10 hub、121 篇 reference。
+合計 11 hub、124 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -33,7 +33,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui，6 家族/約 490 字元，再長考慮再拆）、unity-optimization（perf/build）。
 
-**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text，2026-07-24 加）。正交，routing 邊界最清楚。
+**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，2026-07-24 加，語言中立可讀性/重構決策，不含風格慣例）。正交，routing 邊界最清楚。
 
 ## 待辦
 

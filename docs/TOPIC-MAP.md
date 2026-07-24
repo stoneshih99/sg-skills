@@ -16,6 +16,7 @@
 | unity-dev | `development/unity-optimization` | perf- / build- |
 | dev | `vcs/git-workflow` | branch- / history- / recovery- / commit- / conflict- / remote- |
 | dev | `shell/shell-scripting` | safety- / text- |
+| dev | `craft/clean-code` | naming- / function- / smell- |
 
 ## 分層原則
 
@@ -43,7 +44,9 @@
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
 - unity-dev 獨佔：C# 腳本架構、Input System、Asset 匯入管線、Editor 擴充、Shader、物理。
-- dev 獨佔：git、shell——與遊戲完全正交，不會撞到另兩個 plugin。
+- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）——與遊戲完全正交，不會撞到另兩個 plugin。
+
+> **clean-code 的邊界**：收語言中立的可讀性/可維護性**決策**（命名表意、抽函式、code smell→重構）；**不收**具體風格慣例（PascalCase、縮排、`_` 前綴——那是團隊/語言硬規則，留使用者 CLAUDE.md 與 formatter/linter）。也別跟 game-architecture 混：那是宏觀系統設計（領域模型 vs 資料驅動），clean-code 是微觀程式碼品質。
 
 ## 新增時的自問
 
