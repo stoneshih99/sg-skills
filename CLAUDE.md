@@ -27,6 +27,8 @@
 2. frontmatter description ≤ 1536、hub description ≤ ~400 字元。
 3. `claude plugin validate .`（在 repo 根，驗 marketplace 與三個 plugin source）。
 
+**第 1、3 項已由 pre-commit hook 自動化**（`scripts/hooks/pre-commit`，斷鏈或 validate 失敗就擋下 commit）。**重 clone 後跑一次掛上**：`git config core.hooksPath scripts/hooks`。要略過檢查用 `git commit --no-verify`。
+
 ## 發佈流程（重要）
 
 本機安裝走版本快取，`claude plugin update` **只認該 plugin `plugin.json` 的 version**——內容改了但版本沒 bump，update 會回 already at latest。

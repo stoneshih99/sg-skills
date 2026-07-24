@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# sg-skills pre-commit：commit 前自動跑連結檢查與 plugin validate，失敗就擋下。
+# 掛法：git config core.hooksPath scripts/hooks（重 clone 後跑一次）。
+set -euo pipefail
+
+echo "[pre-commit] 連結檢查…"
+python3 scripts/check-links.py
+
+if command -v claude >/dev/null 2>&1; then
+  echo "[pre-commit] plugin validate…"
+  claude plugin validate .
+else
+  echo "[pre-commit] 跳過 validate（PATH 找不到 claude CLI）"
+fi
+
+echo "[pre-commit] 通過 ✔"
