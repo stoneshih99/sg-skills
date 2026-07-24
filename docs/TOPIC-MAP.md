@@ -18,6 +18,7 @@
 | dev | `shell/shell-scripting` | safety- / text- |
 | dev | `craft/clean-code` | naming- / function- / smell- |
 | dev | `debugging/debug-methodology` | process- / locate- / observe- |
+| dev | `regex/regex-patterns` | mechanics- / safety- / design- |
 
 ## 分層原則
 
@@ -45,11 +46,15 @@
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
 - unity-dev 獨佔：C# 腳本架構、Input System、Asset 匯入管線、Editor 擴充、Shader、物理。
-- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**——通用工程，不會撞到另兩個 plugin。
+- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**、regex（pattern 語言與坑）——通用工程，不會撞到另兩個 plugin。
 
 > **clean-code 的邊界**：收語言中立的可讀性/可維護性**決策**（命名表意、抽函式、code smell→重構）；**不收**具體風格慣例（PascalCase、縮排、`_` 前綴——那是團隊/語言硬規則，留使用者 CLAUDE.md 與 formatter/linter）。也別跟 game-architecture 混：那是宏觀系統設計（領域模型 vs 資料驅動），clean-code 是微觀程式碼品質。
 
 > **debug 的邊界（唯一 overlap 詞）**：「debug」在兩處出現但分層——dev 的 `debug-methodology` 收**怎麼找 bug 的通用方法**（重現/二分定位/讀 stack trace，語言領域中立）；game-dev 的 `game-tooling/debug-` 收**做遊戲用的除錯工具**（debug draw、作弊碼、時間控制、遊戲內日誌）。方法論→dev；動手做遊戲的除錯設施→game-dev。
+
+> **regex vs shell 的邊界（dev 內部）**：`regex/regex-patterns` 收 **pattern 語言本身與坑**（貪婪、anchor、回溯 ReDoS、flavor 可攜、何時別用 regex）；`shell/shell-scripting` 的 `text-` 收 **grep/sed/awk 工具選型與 pipeline**。「這個 regex 為什麼 match 太多/卡死」→ regex；「該用 grep 還是 awk、怎麼串管道」→ shell。grep/sed 的 BRE/ERE flavor 差異放 regex 的 safety 家族。
+
+> **regex ReDoS vs debug 的軟邊界（已知、可接受）**：「regex 讓服務卡死」是兩段式——症狀是服務 hang（`debug-methodology` 先定位/確認是哪條 regex），修法是 ReDoS（`regex-patterns` 的 safety 家族）。sonnet probe 時這題落 debug 是合理的（先定位再 fix），不視為誤觸、不為它調 description。
 
 ## 新增時的自問
 
