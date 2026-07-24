@@ -49,6 +49,8 @@ description 是**使用者會說出口的話**，不是目錄——「讀哪一�
 2. frontmatter description ≤ 1536、hub description ≤ ~400。
 3. `claude plugin validate .`
 
+第 1、3 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，斷鏈或 validate 失敗擋下 commit）——「機器可查的進 hook」。第 2 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
+
 ## 發佈
 
 改 `plugins/<x>/` 內容 → bump `plugins/<x>/.claude-plugin/plugin.json` version → commit → push → `claude plugin update <plugin>@sg-skills`。只 bump 動到的 plugin。
