@@ -10,9 +10,9 @@
 |--------|------|------|------|
 | **sg-game-dev-skills**（plugins/game-dev） | 0.21.3 | 5 hub / 80 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/unity-dev） | 0.11.0 | 3 hub / 31 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
-| **sg-dev-skills**（plugins/dev） | 0.5.0 | 5 hub / 19 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex |
+| **sg-dev-skills**（plugins/dev） | 0.6.0 | 6 hub / 22 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 |
 
-合計 13 hub、130 篇 reference。
+合計 14 hub、133 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -41,7 +41,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui，6 家族/約 490 字元，再長考慮再拆）、unity-optimization（perf/build）。
 
-**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，2026-07-24 加，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）。正交，routing 邊界最清楚。
+**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，2026-07-24 加，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）。正交，routing 邊界最清楚。
 
 ## 待辦
 
@@ -50,7 +50,8 @@
 - [x] pre-commit hook 自動化連結檢查 + validate（2026-07-24）。
 - [x] dev 加 debug-methodology hub（通用除錯方法論，2026-07-24）。
 - [x] dev 加 regex-patterns hub（2026-07-24）。
-- [ ] 各 plugin 依實戰回饋擴充 references（game-dev 無既定候選；dev 候選：CLI 工具）。
+- [x] dev 加 cli-design hub（2026-07-24）——**dev 既定候選全數完成**。
+- [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
 ## 相關文件（歷史紀錄，重構時不回改）
