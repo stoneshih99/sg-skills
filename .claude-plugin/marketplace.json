@@ -1,0 +1,22 @@
+{
+  "name": "sg-skills",
+  "description": "Stone 的個人 Agent Skills marketplace：遊戲（引擎中立）、Unity 專屬、通用工程，三個 plugin 各自可選裝。",
+  "owner": { "name": "Stone", "email": "seaglegames@gmail.com" },
+  "plugins": [
+    {
+      "name": "sg-game-dev-skills",
+      "source": "./plugins/game-dev",
+      "description": "引擎中立遊戲開發：工具、架構、工作流、畫圖、企畫（What/Why）。"
+    },
+    {
+      "name": "sg-unity-dev-skills",
+      "source": "./plugins/unity-dev",
+      "description": "Unity 專屬實作：腳本/資產/效能/編輯器/UI 的決策與坑（How in Unity）。"
+    },
+    {
+      "name": "sg-dev-skills",
+      "source": "./plugins/dev",
+      "description": "通用軟體工程（不限遊戲）：git 工作流、shell 腳本。"
+    }
+  ]
+}

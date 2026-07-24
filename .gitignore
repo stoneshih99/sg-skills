@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# 編輯器 / IDE
+.vscode/
+.idea/
+*.swp
+*~
+.obsidian/
+
+# 環境 / 密鑰
+.env
+.env.local
+
+# 日誌 / 暫存
+*.log
+tmp/

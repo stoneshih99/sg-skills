@@ -1,0 +1,53 @@
+# 主題歸屬總表（TOPIC-MAP）
+
+> **寫新內容前查這張表**：確認主題歸哪個 plugin 哪個 hub。這是 monorepo 防「跨 plugin 重複設計」的核心工具——同一主題只該有一個家。
+
+## 十個 hub 一覽
+
+| Plugin | Hub（分類/入口） | 家族前綴 |
+|--------|-----------------|---------|
+| game-dev | `planning/game-design` | gdd- / level- / feel- / playtest- |
+| game-dev | `architecture/game-architecture` | algo- / data- / system- / net- |
+| game-dev | `tools/game-tooling` | debug- / perf- / telemetry- |
+| game-dev | `workflow/game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- |
+| game-dev | `diagram/game-diagrams` | （四種圖型） |
+| unity-dev | `development/unity-scripting` | script- / input- / asset- / test- / editor- |
+| unity-dev | `development/unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- |
+| unity-dev | `development/unity-optimization` | perf- / build- |
+| dev | `vcs/git-workflow` | branch- / history- / recovery- / commit- / conflict- / remote- |
+| dev | `shell/shell-scripting` | safety- / text- |
+
+## 分層原則
+
+**同一主題的三種問法歸不同 plugin**：
+
+- 「該怎麼設計、為什麼、何時選哪個」→ **game-dev**（引擎中立）
+- 「在 Unity 具體怎麼做、哪個 API/元件、Unity 特有的坑」→ **unity-dev**
+- 「跟遊戲無關的通用工程」→ **dev**
+
+## 重疊區的歸屬裁決（最容易重複的地方）
+
+這些主題在兩個 plugin 都「沾得上邊」——明確裁決避免各寫一份：
+
+| 主題 | game-dev 收 | unity-dev 收 | 裁決 |
+|------|------------|-------------|------|
+| **效能** | `game-tooling/perf-`：引擎中立方法論（先量測再優化、預算思維、瓶頸分類） | `unity-optimization/perf-`：Unity 具體（GC/Alloc、draw call、SRP Batcher、DOTS、Profiler） | 通用方法論→game-dev；碰到 Unity API/Profiler 數字→unity |
+| **多人連線** | `game-architecture/net-`：概念與選型（預測、延遲補償、rollback、權威模型） | `unity-runtime/net-`：NGO/Netcode 具體（NetworkVariable vs RPC、ownership、NetworkTransform） | 概念/選型→game-dev；NGO 具體 API→unity |
+| **音訊** | `game-production/audio-`：資產標準與驗收（響度基準、格式、命名） | `unity-runtime/audio-`：Unity 實作（AudioMixer、snapshot、空間音訊） | 標準/驗收→game-dev；引擎實作→unity |
+| **UI/UX** | `game-production/ui-`：UX 規範與流程（資訊層級、可用性、在地化預留） | `unity-runtime/ui-`：uGUI/UI Toolkit 具體（Canvas、rebuild、raycast） | 規範/流程→game-dev；引擎實作→unity |
+| **動畫/特效** | `game-production/anim-`：資產標準與交付 | `unity-runtime/anim-`：Animator/Timeline/VFX Graph 具體 | 標準→game-dev；引擎實作→unity |
+| **建置** | `game-production/build-`：發行管線概念、版本紀律 | `unity-optimization/build-`：Unity build 具體（Addressables、AssetBundle、平台設定） | 概念/流程→game-dev；Unity build 系統→unity |
+| **測試** | `game-design/playtest-`：玩測（真人玩、回饋收集） | `unity-scripting/test-`：Unity Test Framework（EditMode/PlayMode、自動化） | 完全不同東西：人玩→game-dev；程式測→unity |
+
+## 無重疊（各自獨佔）
+
+- game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
+- unity-dev 獨佔：C# 腳本架構、Input System、Asset 匯入管線、Editor 擴充、Shader、物理。
+- dev 獨佔：git、shell——與遊戲完全正交，不會撞到另兩個 plugin。
+
+## 新增時的自問
+
+1. 這問題是「設計/為什麼」還是「Unity 具體怎麼做」？→ 決定 game-dev vs unity。
+2. 跟遊戲有關嗎？無關→dev。
+3. 落到哪個 hub 的哪個家族前綴？既有家族加 reference；沒有對應域才考慮新家族/新 hub。
+4. 另一個 plugin 是否已有相關篇？有→用**文字提及**互指，不重寫。

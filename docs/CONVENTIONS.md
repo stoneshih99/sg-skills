@@ -1,0 +1,54 @@
+# Skill 撰寫規範（三 plugin 共用）
+
+本 monorepo 三個 plugin（game-dev / unity-dev / dev）共用同一套 hub playbook。差異只在題材與偽代碼語言，結構與紀律一致。
+
+## 定位（收什麼、不收什麼）
+
+- **收**：「A 模式 vs B 模式、為什麼、何時選哪個」的**實作決策級**知識，加上踩過的坑、慣例、驗收標準。
+- **不收**：工具/API 基礎教學（Claude 已知）；個人硬規則（如 commit message 格式、C# 命名——留使用者 CLAUDE.md，plugin 要能分享，不假設讀者的 CLAUDE.md）。
+- 三 plugin 的分工邊界見 [TOPIC-MAP.md](TOPIC-MAP.md)——**寫新內容前必查**，避免跨 plugin 重複設計。
+
+## 目錄與分類
+
+- 每個 plugin 在 `plugins/<x>/`，內含 `.claude-plugin/plugin.json` + `skills/`。
+- Skill 放在分類資料夾下，分類即 plugin.json `skills` 陣列的一行路徑。
+- 新增分類：建資料夾 + plugin.json `skills` 加一行。
+
+## 單一入口模式（hub skill）
+
+同一領域主題超過 3-4 個時，**合併成一個 hub skill**，避免多條相近 description 觸發重疊：
+
+- 一條 description 涵蓋全域觸發情境；路由靠 SKILL.md 內「域總表 → 各域細表（何時 / 讀哪篇）」，不靠模型從多條相近描述猜。
+- references 攤平同一層，用**家族前綴**分域（`perf-*`、`net-*`、`branch-*`…）。
+- SKILL.md 開頭加**定位聲明**（知識入口或可執行工作流、與其他 hub 的搭配）。
+- 新增主題 = 加 reference + 細表加一行；只有出現「新的域」才擴 description。
+
+### hub description 的撰寫原則
+
+description 是**使用者會說出口的話**，不是目錄——「讀哪一篇」由路由表負責，description 只需讓模型決定「要不要開這個 hub」。
+
+- **只寫一次**：別「涵蓋 X」又「當要做 X 時使用」講兩遍。
+- **保留使用者用語**（ECS、rollback、rebase、reflog、「效能太差」「檔名有空格就爆」），**刪掉內部術語**（JPS、spatial hash、AOI 這類只在 reference 內文出現的詞）。
+- **長度上限 ~400 字元**：超過代表在窮舉目錄。全 repo description 總和是每個 session 的常駐成本，當預算管。
+
+## SKILL.md 與 references
+
+- **SKILL.md 輕薄**：frontmatter `description`（繁中、做什麼+何時用、≤1536 字元）+ 域總表 + 家族細表。細節一律下放 references。
+- **references 漸進式揭露**：一檔一主題，檔名 kebab-case 語意化並帶家族前綴。
+- **reference 組織**：「決策/何時用 → 選型對照（A vs B）→ 偽代碼/指令範例 → 坑」，末附速查。
+- **偽代碼語言**：game-dev 引擎中立、unity 用實際 C#、dev 用實際 shell。內文一律繁體中文。
+
+## cross-link 規則
+
+- **同 plugin 內**用相對路徑：reference 到同 plugin 其他 hub 是 `../../../<category>/<hub>/references/<file>.md`（從 references/ 出發往上三層到 skills/）。
+- **跨 plugin**一律**文字提及**，不用相對路徑——安裝後各 plugin 獨立快取，跨 plugin 相對連結會斷。
+
+## 改動後必跑
+
+1. `python3 scripts/check-links.py`——全 monorepo 連結檢查。
+2. frontmatter description ≤ 1536、hub description ≤ ~400。
+3. `claude plugin validate .`
+
+## 發佈
+
+改 `plugins/<x>/` 內容 → bump `plugins/<x>/.claude-plugin/plugin.json` version → commit → push → `claude plugin update <plugin>@sg-skills`。只 bump 動到的 plugin。
