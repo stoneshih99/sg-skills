@@ -6,7 +6,7 @@ Stone 的個人 **Agent Skills marketplace**，以 Claude Code Plugin 形式發�
 |--------|----|------|------|
 | **sg-game-dev-skills** | 引擎中立遊戲（What/Why） | 一人工作室的虛擬部門顧問團 | 企畫 / 架構 / 工具 / 工作流 / 畫圖，5 hub |
 | **sg-unity-dev-skills** | Unity 具體（How in Unity） | 接住 game-dev 刻意留白的引擎實作 | 腳本 / 執行期 / 優化，3 hub |
-| **sg-dev-skills** | 通用工程（不限遊戲） | 跨領域決策與坑 | git 工作流 / shell 腳本，2 hub |
+| **sg-dev-skills** | 通用工程（不限遊戲） | 跨領域決策與坑 | git / shell / Clean Code / 除錯方法論 / regex / CLI 設計，6 hub |
 
 三者**分層正交**：game-dev 講「該怎麼設計、為什麼」，unity 講「在 Unity 具體怎麼做」，dev 講「跟遊戲無關的通用工程」。
 

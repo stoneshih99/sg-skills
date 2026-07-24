@@ -33,7 +33,7 @@
 
 ## Router 結論（跨 plugin 觸發）
 
-三 plugin 共存**不需額外 router 層**——Claude Code 的 skill description 觸發本身就是 router。精準靠「description 邊界切乾淨 + 重疊詞用層區隔」。headless probe 驗證：跨 plugin 邊界全對、unity 三 hub sonnet 7/7、dev git vs shell sonnet 6/6。**相似 hub 用 sonnet 探測，別用 haiku**（haiku 對相同 query 會給不一致答案，曾誤導判斷）。
+三 plugin 共存**不需額外 router 層**——Claude Code 的 skill description 觸發本身就是 router。精準靠「description 邊界切乾淨 + 重疊詞用層區隔」。headless probe 驗證：跨 plugin 邊界全對、unity 三 hub sonnet 7/7；dev 六 hub 每加一 hub 都實裝 probe（git vs shell 6/6、+clean-code 6/6、+debug 7/7、+regex 6/7——1 題為 TOPIC-MAP 記錄的合理軟邊界、+cli 7/7，cli↔shell 零滲漏）。**相似 hub 用 sonnet 探測，別用 haiku**（haiku 對相同 query 會給不一致答案，曾誤導判斷）。
 
 ## 各 plugin 狀態
 
@@ -41,7 +41,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui，6 家族/約 490 字元，再長考慮再拆）、unity-optimization（perf/build）。
 
-**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，2026-07-24 加，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）。正交，routing 邊界最清楚。
+**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
 
 ## 待辦
 
