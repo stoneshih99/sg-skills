@@ -1,7 +1,7 @@
 {
   "name": "sg-dev-skills",
-  "description": "通用軟體工程 Agent Skills（不限遊戲）：git 工作流、shell 腳本、Clean Code 的實作決策與坑。",
-  "version": "0.3.0",
+  "description": "通用軟體工程 Agent Skills（不限遊戲）：git 工作流、shell 腳本、Clean Code、除錯方法論的實作決策與坑。",
+  "version": "0.4.0",
   "author": {
     "name": "Stone",
     "email": "seaglegames@gmail.com"
@@ -9,6 +9,7 @@
   "skills": [
     "./skills/vcs",
     "./skills/shell",
-    "./skills/craft"
+    "./skills/craft",
+    "./skills/debugging"
   ]
 }
