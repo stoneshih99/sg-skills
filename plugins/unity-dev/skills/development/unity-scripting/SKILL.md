@@ -15,7 +15,7 @@ description: Unity 寫程式與資產的實作決策與坑——五家族：腳�
 |----------|------|------|
 | 寫遊戲邏輯：生命週期、非同步、組件通訊 | 腳本 | ↓ Script |
 | 處理輸入：Input System、Action Maps、意圖分層、重綁 | 輸入 | ↓ Input |
-| 資料與資產：ScriptableObject、載入、匯入、序列化 | 資產 | ↓ Asset |
+| 資料與資產：ScriptableObject、載入、匯入、存檔 | 資產 | ↓ Asset |
 | 寫測試、可測性 | 測試 | ↓ Test |
 | 做編輯器工具：Inspector、視窗、Gizmos | 編輯器 | ↓ Editor |
 
@@ -43,6 +43,7 @@ description: Unity 寫程式與資產的實作決策與坑——五家族：腳�
 | ScriptableObject 當資料/config/事件、vs JSON、執行期污染坑 | `references/asset-scriptableobject.md` |
 | AssetPostprocessor 自動化匯入、spriteImportMode 坑 | `references/asset-import-pipeline.md` |
 | 載入策略：Addressables vs Resources vs 直接參照 | `references/asset-loading.md` |
+| 存檔/持久化：PlayerPrefs vs JSON 檔、serializer 選型、原子寫入、平台坑 | `references/asset-save-persistence.md` |
 
 ## Test（測試）
 

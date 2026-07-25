@@ -2,7 +2,7 @@
 
 > **寫新內容前查這張表**：確認主題歸哪個 plugin 哪個 hub。這是 monorepo 防「跨 plugin 重複設計」的核心工具——同一主題只該有一個家。
 
-## 十個 hub 一覽
+## 全 hub 一覽
 
 | Plugin | Hub（分類/入口） | 家族前綴 |
 |--------|-----------------|---------|
@@ -42,7 +42,7 @@
 | **動畫/特效** | `game-production/anim-`：資產標準與交付 | `unity-runtime/anim-`：Animator/Timeline/VFX Graph 具體 | 標準→game-dev；引擎實作→unity |
 | **建置** | `game-production/build-`：發行管線概念、版本紀律 | `unity-optimization/build-`：Unity build 具體（Addressables、AssetBundle、平台設定） | 概念/流程→game-dev；Unity build 系統→unity |
 | **測試** | `game-design/playtest-`：玩測（真人玩、回饋收集） | `unity-scripting/test-`：Unity Test Framework（EditMode/PlayMode、自動化） | 完全不同東西：人玩→game-dev；程式測→unity |
-
+| **存檔** | `game-architecture/system-foundation` 存檔架構節：純資料快照、原子寫入、版本遷移、autosave 時機（另見 `data-network-sync` 序列化原則） | `unity-scripting/asset-save-persistence`：Unity 具體（PlayerPrefs vs 檔案、serializer 選型、平台坑） | 原則→game-dev；存哪/用哪個 serializer/平台坑→unity |
 ## 無重疊（各自獨佔）
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
