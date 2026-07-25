@@ -13,7 +13,7 @@ description: 遊戲程式架構的單一知識入口，四域：演算法與資�
 
 | 你的問題 | 域 | 細表 |
 |----------|----|------|
-| 用什麼演算法思路、pathfinding、碰撞計算、選容器 | 演算法 | ↓ Algo |
+| 用什麼演算法思路、pathfinding、碰撞計算、選容器、2D/iso 視角與格子 | 演算法 | ↓ Algo |
 | 資料跟邏輯怎麼切、批次效能、ECS、設定表、同步 | 資料驅動 | ↓ Data |
 | 設計某個具體系統：戰鬥、技能/Buff、3C、AI、UI、基礎設施、場景、敘事 | 系統架構 | ↓ System |
 | 做多人：同步模型、協定、預測、伺服器 | 多人連線 | ↓ Net |
@@ -25,6 +25,7 @@ description: 遊戲程式架構的單一知識入口，四域：演算法與資�
 | 何時 | 讀 |
 |------|-----|
 | 不確定用哪種演算法「思路」（暴力/貪婪/分治/DP/回溯/雙指針） | `references/algo-problem-solving.md` |
+| 2D 視角與格子：top-down/iso/2.5D 選型、座標轉換、y-sort 深度排序 | `references/algo-2d-projection-and-grids.md` |
 | pathfinding、AI 搜尋、圖上搜尋（BFS/DFS/Dijkstra/A*/JPS/二分搜） | `references/algo-search.md` |
 | 移動、碰撞、瞄準、平滑過渡（向量/AABB/SAT/raycast/lerp/彈道/steering） | `references/algo-physics.md` |
 | 選容器、懷疑結構選錯導致效能問題（hash/heap/grid/quadtree/graph） | `references/algo-data-structures.md` |

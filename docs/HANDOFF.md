@@ -8,11 +8,11 @@
 
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
-| **sg-game-dev-skills**（plugins/game-dev） | 0.22.0 | 5 hub / 82 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
-| **sg-unity-dev-skills**（plugins/unity-dev） | 0.12.0 | 3 hub / 32 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
+| **sg-game-dev-skills**（plugins/game-dev） | 0.23.0 | 5 hub / 83 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
+| **sg-unity-dev-skills**（plugins/unity-dev） | 0.13.0 | 3 hub / 33 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
 | **sg-dev-skills**（plugins/dev） | 0.6.0 | 6 hub / 22 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 |
 
-合計 14 hub、136 篇 reference。
+合計 14 hub、138 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -39,7 +39,7 @@
 
 **game-dev**：五分類全開張，一分類一 hub。architecture 的 system（8 篇）與 net（4 篇）為實作決策級深度。既定候選全數完成，後續依實戰回饋擴充。
 
-**unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui，6 家族/約 490 字元，再長考慮再拆）、unity-optimization（perf/build）。
+**unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui/2d，7 家族、description 已超 ~400 字元準則，**再加家族前先拆 hub**）、unity-optimization（perf/build）。
 
 **dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
 
@@ -53,6 +53,7 @@
 - [x] dev 加 cli-design hub（2026-07-24）——**dev 既定候選全數完成**。
 - [x] unity-scripting 加 asset-save-persistence（存檔 Unity 落地；概念層 system-foundation 既有，TOPIC-MAP 補存檔裁決行，2026-07-25）。
 - [x] game-production 開 platform- 家族（行動/PC 平台約束兩篇，新域故擴 hub description；TOPIC-MAP 補平台裁決行，2026-07-25）。
+- [x] 2D/isometric 雙層：game-architecture 加 algo-2d-projection-and-grids（algo 既有家族）、unity-runtime 開 2d- 家族（新域擴 description）；TOPIC-MAP 補 2D 裁決行（2026-07-25）。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 

@@ -12,7 +12,7 @@
 | game-dev | `workflow/game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- / platform- |
 | game-dev | `diagram/game-diagrams` | （四種圖型） |
 | unity-dev | `development/unity-scripting` | script- / input- / asset- / test- / editor- |
-| unity-dev | `development/unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- |
+| unity-dev | `development/unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- / 2d- |
 | unity-dev | `development/unity-optimization` | perf- / build- |
 | dev | `vcs/git-workflow` | branch- / history- / recovery- / commit- / conflict- / remote- |
 | dev | `shell/shell-scripting` | safety- / text- |
@@ -44,6 +44,7 @@
 | **測試** | `game-design/playtest-`：玩測（真人玩、回饋收集） | `unity-scripting/test-`：Unity Test Framework（EditMode/PlayMode、自動化） | 完全不同東西：人玩→game-dev；程式測→unity |
 | **存檔** | `game-architecture/system-foundation` 存檔架構節：純資料快照、原子寫入、版本遷移、autosave 時機（另見 `data-network-sync` 序列化原則） | `unity-scripting/asset-save-persistence`：Unity 具體（PlayerPrefs vs 檔案、serializer 選型、平台坑） | 原則→game-dev；存哪/用哪個 serializer/平台坑→unity |
 | **平台** | `game-production/platform-`：平台設計約束（觸控/發熱降級/商店審查/顯示碎片化/Steam 慣例） | `unity-optimization/build-platform`：Unity 平台設定與 build 具體 | 設計約束與審查流程→game-dev；Unity 設定/API→unity |
+| **2D/isometric** | `game-architecture/algo-2d-projection-and-grids`：視角/格子選型、2.5D 岔路、座標三空間數學、y-sort 規則 | `unity-runtime/2d-`：Unity 具體（Transparency Sort Axis、SortingGroup、Isometric Tilemap、Pixel Perfect） | 選型/數學/排序規則→game-dev；Unity 元件與設定→unity |
 
 ## 無重疊（各自獨佔）
 

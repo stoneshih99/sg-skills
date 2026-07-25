@@ -1,6 +1,6 @@
 ---
 name: unity-runtime
-description: Unity 執行期表現系統的實作決策與坑——六家族：物理（Rigidbody/碰撞、CCD 穿隧、Raycast NonAlloc、層矩陣）、多人連線（NGO/Mirror/Photon 選型、NetworkVariable vs RPC、ownership/authority）、著色器（Shader Graph vs HLSL、URP/HDRP、MaterialPropertyBlock、variant 爆炸）、動畫（Animator/Mecanim、Has Exit Time 坑、Timeline/Tween 選型）、音訊（AudioMixer、AudioSource 2D/3D、Load Type 記憶體取捨）、UI（uGUI vs UI Toolkit、Canvas rebuild、Raycast Target）。當在 Unity 做物理、多人連線/netcode、著色器、動畫、音訊或介面時使用。寫 code/資產見 unity-scripting、效能建置見 unity-optimization、引擎中立設計見 sg-game-dev-skills。含 C#。
+description: Unity 執行期表現系統的實作決策與坑——七家族：物理（Rigidbody/碰撞、CCD 穿隧、Raycast NonAlloc、層矩陣）、多人連線（NGO/Mirror/Photon 選型、NetworkVariable vs RPC、ownership/authority）、著色器（Shader Graph vs HLSL、URP/HDRP、MaterialPropertyBlock、variant 爆炸）、動畫（Animator/Mecanim、Has Exit Time 坑、Timeline/Tween 選型）、音訊（AudioMixer、AudioSource 2D/3D、Load Type 記憶體取捨）、UI（uGUI vs UI Toolkit、Canvas rebuild、Raycast Target）、2D（sprite 排序 y-sort、SortingGroup、Isometric Tilemap、Pixel Perfect）。當在 Unity 做物理、多人連線/netcode、著色器、動畫、音訊、介面，或 2D/isometric 排序與 Tilemap 時使用。寫 code/資產見 unity-scripting、效能建置見 unity-optimization、引擎中立設計見 sg-game-dev-skills。含 C#。
 ---
 
 # Unity 執行期系統（Unity Runtime）
@@ -19,6 +19,7 @@ description: Unity 執行期表現系統的實作決策與坑——六家族：�
 | 動畫/演出：Animator、Timeline、Tween | 動畫 | ↓ Anim |
 | 音訊：AudioMixer、AudioSource、匯入 | 音訊 | ↓ Audio |
 | 介面：uGUI vs UI Toolkit、Canvas 效能 | UI | ↓ UI |
+| 2D：sprite 排序、y-sort、Isometric Tilemap、像素完美 | 2D | ↓ 2D |
 
 ## Physics（物理）
 
@@ -61,3 +62,9 @@ description: Unity 執行期表現系統的實作決策與坑——六家族：�
 |------|-----|
 | uGUI vs UI Toolkit 選型與適用 | `references/ui-toolkit-vs-ugui.md` |
 | uGUI 效能：Canvas 分割與 rebuild、Raycast Target 坑 | `references/ui-ugui-performance.md` |
+
+## 2D
+
+| 何時 | 讀 |
+|------|-----|
+| sorting 決策鏈與 y-sort、SortingGroup、Isometric Tilemap 設定、Pixel Perfect | `references/2d-sorting-and-isometric.md` |
