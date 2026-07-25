@@ -39,7 +39,7 @@
 | **多人連線** | `game-architecture/net-`：概念與選型（預測、延遲補償、rollback、權威模型） | `unity-runtime/net-`：NGO/Netcode 具體（NetworkVariable vs RPC、ownership、NetworkTransform） | 概念/選型→game-dev；NGO 具體 API→unity |
 | **音訊** | `game-production/audio-`：資產標準與驗收（響度基準、格式、命名） | `unity-runtime/audio-`：Unity 實作（AudioMixer、snapshot、空間音訊） | 標準/驗收→game-dev；引擎實作→unity |
 | **UI/UX** | `game-production/ui-`：UX 規範與流程（資訊層級、可用性、在地化預留） | `unity-runtime/ui-`：uGUI/UI Toolkit 具體（Canvas、rebuild、raycast） | 規範/流程→game-dev；引擎實作→unity |
-| **動畫/特效** | `game-production/anim-`：資產標準與交付 | `unity-runtime/anim-`：Animator/Timeline/VFX Graph 具體 | 標準→game-dev；引擎實作→unity |
+| **動畫/特效** | `game-production/anim-`：資產標準與交付、逐幀 vs 骨骼（Spine 類）選型 | `unity-runtime/anim-`：Animator/Timeline 具體、2D 骨骼（2D Animation package/Spine runtime） | 標準/選型→game-dev；引擎實作→unity |
 | **建置** | `game-production/build-`：發行管線概念、版本紀律 | `unity-optimization/build-`：Unity build 具體（Addressables、AssetBundle、平台設定） | 概念/流程→game-dev；Unity build 系統→unity |
 | **測試** | `game-design/playtest-`：玩測（真人玩、回饋收集） | `unity-scripting/test-`：Unity Test Framework（EditMode/PlayMode、自動化） | 完全不同東西：人玩→game-dev；程式測→unity |
 | **存檔** | `game-architecture/system-foundation` 存檔架構節：純資料快照、原子寫入、版本遷移、autosave 時機（另見 `data-network-sync` 序列化原則） | `unity-scripting/asset-save-persistence`：Unity 具體（PlayerPrefs vs 檔案、serializer 選型、平台坑） | 原則→game-dev；存哪/用哪個 serializer/平台坑→unity |

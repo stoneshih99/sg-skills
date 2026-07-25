@@ -48,6 +48,7 @@ description: Unity 執行期表現系統的實作決策與坑——七家族：�
 |------|-----|
 | Animator/Mecanim 狀態機紀律、Layer/Mask、轉移(Has Exit Time 坑)、動畫事件 | `references/anim-mecanim.md` |
 | Timeline / Tween / 程式動畫選型、過場 skip 保護、tween 生命週期 | `references/anim-timeline-and-tweens.md` |
+| 2D 角色動畫：spritesheet 組裝、Unity 2D Animation vs Spine runtime | `references/anim-2d-spritesheet-and-skeletal.md` |
 
 ## Audio（音訊）
 

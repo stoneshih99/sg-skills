@@ -16,7 +16,7 @@ description: 遊戲生產流程與資產標準的單一知識入口：流程三�
 | 專案怎麼排階段、時程爆了、驗收怎麼跑 | 里程碑 | ↓ Milestone |
 | 版控、出 build、CI、發版、hotfix | 建置管線 | ↓ Build |
 | 內容量產、資產命名、外包交接 | 內容量產 | ↓ Content |
-| 風格、美術規格、資產類型、畫面可讀性 | 美術標準 | ↓ Art |
+| 風格、美術規格、資產類型、可讀性、資產從哪來（AI/外包/資產包） | 美術標準 | ↓ Art |
 | 音效、音樂、混音、音訊實作 | 音訊標準 | ↓ Audio |
 | 動作手感的動畫面、特效設計與效能 | 動畫特效 | ↓ Anim/VFX |
 | 多語、字串、翻譯、破版 | 本地化 | ↓ Localization |
@@ -58,6 +58,7 @@ description: 遊戲生產流程與資產標準的單一知識入口：流程三�
 | 定技術規格：texel density、圖集、LOD、材質預算 | `references/art-tech-specs.md` |
 | sprite / tilemap / UI / 動畫 / 3D 各類製作要點 | `references/art-asset-types.md` |
 | 畫面驗收、「看不清楚」 | `references/art-visual-readability.md` |
+| 資產從哪來：自繪/資產包/外包/AI 生成選型、AI 管線邊界與揭露 | `references/art-asset-sourcing.md` |
 
 ## Audio（音訊標準）
 
@@ -73,6 +74,7 @@ description: 遊戲生產流程與資產標準的單一知識入口：流程三�
 | 何時 | 讀 |
 |------|-----|
 | 角色動作：前搖後搖、狀態機、root motion | `references/anim-game-principles.md` |
+| 2D 角色動畫選型：逐幀 spritesheet vs 骨骼（Spine 類）、朝向成本 | `references/anim-2d-frames-vs-skeletal.md` |
 | 特效設計：三段結構、形狀、色彩職責 | `references/anim-vfx-design.md` |
 | 粒子預算、overdraw、flipbook、pooling | `references/anim-vfx-tech-specs.md` |
 
