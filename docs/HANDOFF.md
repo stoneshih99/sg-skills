@@ -8,11 +8,11 @@
 
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
-| **sg-game-dev-skills**（plugins/game-dev） | 0.21.3 | 5 hub / 80 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
+| **sg-game-dev-skills**（plugins/game-dev） | 0.22.0 | 5 hub / 82 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/unity-dev） | 0.12.0 | 3 hub / 32 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
 | **sg-dev-skills**（plugins/dev） | 0.6.0 | 6 hub / 22 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 |
 
-合計 14 hub、134 篇 reference。
+合計 14 hub、136 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -51,7 +51,9 @@
 - [x] dev 加 debug-methodology hub（通用除錯方法論，2026-07-24）。
 - [x] dev 加 regex-patterns hub（2026-07-24）。
 - [x] dev 加 cli-design hub（2026-07-24）——**dev 既定候選全數完成**。
-- [x] unity-scripting 加 asset-save-persistence（存檔 Unity 落地；概念層 system-foundation 既有，TOPIC-MAP 補存檔裁決行，2026-07-25）。- [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
+- [x] unity-scripting 加 asset-save-persistence（存檔 Unity 落地；概念層 system-foundation 既有，TOPIC-MAP 補存檔裁決行，2026-07-25）。
+- [x] game-production 開 platform- 家族（行動/PC 平台約束兩篇，新域故擴 hub description；TOPIC-MAP 補平台裁決行，2026-07-25）。
+- [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
 ## 相關文件（歷史紀錄，重構時不回改）

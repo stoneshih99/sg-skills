@@ -9,7 +9,7 @@
 | game-dev | `planning/game-design` | gdd- / level- / feel- / playtest- |
 | game-dev | `architecture/game-architecture` | algo- / data- / system- / net- |
 | game-dev | `tools/game-tooling` | debug- / perf- / telemetry- |
-| game-dev | `workflow/game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- |
+| game-dev | `workflow/game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- / platform- |
 | game-dev | `diagram/game-diagrams` | （四種圖型） |
 | unity-dev | `development/unity-scripting` | script- / input- / asset- / test- / editor- |
 | unity-dev | `development/unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- |
@@ -43,6 +43,8 @@
 | **建置** | `game-production/build-`：發行管線概念、版本紀律 | `unity-optimization/build-`：Unity build 具體（Addressables、AssetBundle、平台設定） | 概念/流程→game-dev；Unity build 系統→unity |
 | **測試** | `game-design/playtest-`：玩測（真人玩、回饋收集） | `unity-scripting/test-`：Unity Test Framework（EditMode/PlayMode、自動化） | 完全不同東西：人玩→game-dev；程式測→unity |
 | **存檔** | `game-architecture/system-foundation` 存檔架構節：純資料快照、原子寫入、版本遷移、autosave 時機（另見 `data-network-sync` 序列化原則） | `unity-scripting/asset-save-persistence`：Unity 具體（PlayerPrefs vs 檔案、serializer 選型、平台坑） | 原則→game-dev；存哪/用哪個 serializer/平台坑→unity |
+| **平台** | `game-production/platform-`：平台設計約束（觸控/發熱降級/商店審查/顯示碎片化/Steam 慣例） | `unity-optimization/build-platform`：Unity 平台設定與 build 具體 | 設計約束與審查流程→game-dev；Unity 設定/API→unity |
+
 ## 無重疊（各自獨佔）
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
