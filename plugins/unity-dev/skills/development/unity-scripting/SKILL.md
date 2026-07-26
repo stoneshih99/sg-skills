@@ -1,6 +1,6 @@
 ---
 name: unity-scripting
-description: Unity 寫程式與資產的實作決策與坑——五家族：腳本（生命週期/執行順序、UniTask vs Coroutine、GetComponent 快取、Camera.main 坑）、輸入（新 Input System vs 舊、Action Maps、輸入→意圖分層、重綁鍵、input buffer）、資產（ScriptableObject vs JSON、Addressables、AssetPostprocessor）、測試（EditMode vs PlayMode、可測性）、編輯器擴充（Custom Inspector、EditorWindow/Gizmos）。當在 Unity 寫遊戲邏輯、處理輸入、設計資產、寫測試或做編輯器工具時使用。執行期系統（物理/動畫/音訊/UI）見 unity-runtime、效能與建置見 unity-optimization、引擎中立架構見 sg-game-dev-skills。含 C#。
+description: Unity 寫程式與資產的實作決策與坑——五家族：腳本（生命週期/執行順序、UniTask vs Coroutine、服務定位 vs singleton、GetComponent 快取、Camera.main 坑）、輸入（新 Input System vs 舊、Action Maps、輸入→意圖分層、重綁鍵、input buffer）、資產（ScriptableObject vs JSON、Addressables、AssetPostprocessor）、測試（EditMode vs PlayMode、可測性）、編輯器擴充（Custom Inspector、EditorWindow/Gizmos）。當在 Unity 寫遊戲邏輯、處理輸入、設計資產、寫測試或做編輯器工具時使用。執行期系統（物理/動畫/音訊/UI）見 unity-runtime、效能與建置見 unity-optimization、引擎中立架構見 sg-game-dev-skills。含 C#。
 ---
 
 # Unity 寫程式與資產（Unity Scripting）

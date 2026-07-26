@@ -9,8 +9,8 @@
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
 | **sg-game-dev-skills**（plugins/game-dev） | 0.26.0 | 5 hub / 87 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
-| **sg-unity-dev-skills**（plugins/unity-dev） | 0.16.0 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
-| **sg-dev-skills**（plugins/dev） | 0.7.0 | 7 hub / 25 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 / 設計模式 |
+| **sg-unity-dev-skills**（plugins/unity-dev） | 0.16.1 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
+| **sg-dev-skills**（plugins/dev） | 0.7.1 | 7 hub / 25 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 / 設計模式 |
 
 合計 15 hub、148 篇 reference。
 
@@ -59,7 +59,7 @@
 - [x] game-design 加 gdd-deconstruction（參考作拆解：五切面/兩輪紀律/三張表，gdd 既有家族；發想鏈缺口之一，另一缺口「量化市場調研」暫緩，2026-07-26）。
 - [x] unity-runtime 加 net-fishnet-and-eos（FishNet v4 SyncVar<T>/Prediction v2/EOS P2P listen-server 架構真相；net 既有家族，description 的框架列舉補 FishNet 與 EOS，2026-07-26）。
 - [x] dev 開 design-patterns hub（patterns 分類，creational/structural/behavioral 三篇；TOPIC-MAP 補邊界節與 overlap 詞分工，2026-07-26）。
-- [ ] design-patterns hub 的 sonnet probe（vs clean-code、vs game-architecture 的 FSM/singleton 邊界）——照 dev 每加一 hub 都實裝 probe 的慣例，尚未跑。
+- [x] design-patterns hub 的 sonnet probe：8 題 6/8（2026-07-26）。跨 plugin 邊界全對（FSM 遊戲 AI→game-architecture、事件系統設計→game-architecture）。兩個 miss 已處置：①「if-else 重複」落 clean-code＝合理軟邊界（TOPIC-MAP 已記，clean-code smell 表加「重複條件分支」列互接 behavioral-selection）；②「Unity 服務定位」落 unity-runtime＝unity-scripting description 列舉缺漏，補「服務定位 vs singleton」後複測 3/3 落 unity-scripting。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 

@@ -63,6 +63,7 @@
 > **regex ReDoS vs debug 的軟邊界（已知、可接受）**：「regex 讓服務卡死」是兩段式——症狀是服務 hang（`debug-methodology` 先定位/確認是哪條 regex），修法是 ReDoS（`regex-patterns` 的 safety 家族）。sonnet probe 時這題落 debug 是合理的（先定位再 fix），不視為誤觸、不為它調 description。
 
 > **design-patterns 的邊界（含 overlap 詞 FSM/singleton/observer）**：dev 的 `patterns/design-patterns` 收**通用 pattern 的選型判準與坑**（語言領域中立，不教定義——Claude 已知）。與 clean-code 分層：clean-code 是微觀可讀性（命名/函式/smell），patterns 是結構選型。跨 plugin 的 overlap 詞分工——「FSM 該怎麼實作」（enum/state 物件/轉移表）→ dev；「遊戲 AI 用 FSM 還是 BT」→ game-dev `system-game-ai`；「singleton 的通用毒性與替代階梯」→ dev；「遊戲引擎的模組生命週期/服務表」→ game-dev `system-foundation`；「Unity 的服務定位落地」→ unity `script-architecture-glue`。通用論證→dev；遊戲/引擎落地→另兩個 plugin。
+> **patterns vs clean-code 的軟邊界（已知、可接受）**：「if-else 重複想重構」是兩段式——先判「該不該抽」（真假重複/Rule of Three，`clean-code` 的 smell）、再選「換什麼結構」（strategy/多型，`design-patterns`）。sonnet probe 此題落 clean-code 是合理的；兩邊內容已互接（clean-code smell 表的重複條件分支列指向 behavioral-selection），不視為誤觸、不為它調 description。
 
 > **cli vs shell 的邊界（dev 內部）**：`cli/cli-design` 收**設計/寫一個命令列程式**（stdout/stderr 契約、exit code、flag 慣例、--help/TTY UX）；`shell/shell-scripting` 收**寫腳本呼叫/串接既有工具**。「我的工具的介面/輸出該怎麼設計」→ cli；「怎麼寫腳本串 grep/awk」→ shell。兩者互補：cli 遵守契約，shell 的腳本才串得動。工具**用法教學**（jq 怎麼下參數）兩邊都不收——Claude 已知。
 
