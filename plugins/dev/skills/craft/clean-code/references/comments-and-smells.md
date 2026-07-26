@@ -32,7 +32,7 @@ Smell 不是 bug，是「設計在提示該重構」的味道。認得味道，�
 | Smell | 味道 | 對應重構 |
 |-------|------|---------|
 | **重複程式碼**（Duplicated Code） | 同段邏輯出現多處 | 抽函式 / 抽共用類別——但先確認是**真重複**（見下方 DRY 陷阱） |
-| **重複條件分支**（Repeated Switches） | 同一條決策軸的 if-else/switch 散在多處 | 換多型或 strategy——結構選型見 `../../../patterns/design-patterns/references/behavioral-selection.md` |
+| **重複條件分支**（Repeated Switches） | 同一條決策軸的 if-else/switch 散在多處 | 換多型或 strategy——結構選型見 `../../../patterns/design-patterns/references/pattern-selection.md` |
 | **過長函式**（Long Function） | 一句話說不清它做什麼 | 抽函式、拆抽象層級（見 [function-design.md](function-design.md)） |
 | **過大類別**（Large Class） | 一個類別扛太多職責 | 拆類別、依職責分組 |
 | **長參數列**（Long Parameter List） | 4+ 參數 | 包成參數物件 |

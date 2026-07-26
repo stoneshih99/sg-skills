@@ -9,10 +9,10 @@
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
 | **sg-game-dev-skills**（plugins/game-dev） | 0.26.0 | 5 hub / 87 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
-| **sg-unity-dev-skills**（plugins/unity-dev） | 0.16.1 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
-| **sg-dev-skills**（plugins/dev） | 0.7.1 | 7 hub / 25 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 / 設計模式 |
+| **sg-unity-dev-skills**（plugins/unity-dev） | 0.16.2 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
+| **sg-dev-skills**（plugins/dev） | 0.8.0 | 7 hub / 23 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 / 設計模式 |
 
-合計 15 hub、148 篇 reference。
+合計 15 hub、146 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -41,7 +41,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui/2d，7 家族、description 已超 ~400 字元準則，**再加家族前先拆 hub**）、unity-optimization（perf/build）。
 
-**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）、design-patterns（creational/structural/behavioral，pattern 選型與坑非教學；FSM/singleton/observer 三個 overlap 詞的跨 plugin 分工見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
+**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）、design-patterns（**單篇**，pattern 選型與坑非教學；FSM/singleton/observer 三個 overlap 詞的跨 plugin 分工見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
 
 ## 待辦
 
@@ -60,6 +60,7 @@
 - [x] unity-runtime 加 net-fishnet-and-eos（FishNet v4 SyncVar<T>/Prediction v2/EOS P2P listen-server 架構真相；net 既有家族，description 的框架列舉補 FishNet 與 EOS，2026-07-26）。
 - [x] dev 開 design-patterns hub（patterns 分類，creational/structural/behavioral 三篇；TOPIC-MAP 補邊界節與 overlap 詞分工，2026-07-26）。
 - [x] design-patterns hub 的 sonnet probe：8 題 6/8（2026-07-26）。跨 plugin 邊界全對（FSM 遊戲 AI→game-architecture、事件系統設計→game-architecture）。兩個 miss 已處置：①「if-else 重複」落 clean-code＝合理軟邊界（TOPIC-MAP 已記，clean-code smell 表加「重複條件分支」列互接 behavioral-selection）；②「Unity 服務定位」落 unity-runtime＝unity-scripting description 列舉缺漏，補「服務定位 vs singleton」後複測 3/3 落 unity-scripting。
+- [x] design-patterns 瘦身（2026-07-26）：三篇壓成單篇（砍 structural——最接近「Claude 已知」的純教學），description 328→183 字元。**判準記下來**：內容值不值得進 skill，看它是「Claude 會說錯」（版本漂移/架構誤解，最值得）、「知道但不會主動說」（平台坑/設定細節，值得），還是「知道且會說、只差預設值」（用 CLAUDE.md 一行即可，不該開 hub）。瘦身後複測：狀態機實作 3/3 design-patterns、遊戲 AI FSM 3/3 game-architecture、通用 singleton 3/3 design-patterns、Unity 服務定位 2/2 unity-scripting。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
