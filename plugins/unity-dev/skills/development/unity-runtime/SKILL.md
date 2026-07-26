@@ -1,6 +1,6 @@
 ---
 name: unity-runtime
-description: Unity 執行期表現系統的實作決策與坑——七家族：物理（Rigidbody/碰撞、CCD 穿隧、Raycast NonAlloc、層矩陣）、多人連線（NGO/Mirror/Photon 選型、NetworkVariable vs RPC、ownership/authority）、著色器（Shader Graph vs HLSL、URP/HDRP、MaterialPropertyBlock、variant 爆炸）、動畫（Animator/Mecanim、Has Exit Time 坑、Timeline/Tween 選型）、音訊（AudioMixer、AudioSource 2D/3D、Load Type 記憶體取捨）、UI（uGUI vs UI Toolkit、Canvas rebuild、Raycast Target）、2D（sprite 排序 y-sort、SortingGroup、Isometric Tilemap、Pixel Perfect）。當在 Unity 做物理、多人連線/netcode、著色器、動畫、音訊、介面，或 2D/isometric 排序與 Tilemap 時使用。寫 code/資產見 unity-scripting、效能建置見 unity-optimization、引擎中立設計見 sg-game-dev-skills。含 C#。
+description: Unity 執行期表現系統的實作決策與坑——七家族：物理（Rigidbody/碰撞、CCD 穿隧、Raycast NonAlloc、層矩陣）、多人連線（NGO/FishNet/Mirror/Photon 選型、SyncVar/RPC、預測、EOS P2P、ownership/authority）、著色器（Shader Graph vs HLSL、URP/HDRP、MaterialPropertyBlock、variant 爆炸）、動畫（Animator/Mecanim、Has Exit Time 坑、Timeline/Tween 選型）、音訊（AudioMixer、AudioSource 2D/3D、Load Type 記憶體取捨）、UI（uGUI vs UI Toolkit、Canvas rebuild、Raycast Target）、2D（sprite 排序 y-sort、SortingGroup、Isometric Tilemap、Pixel Perfect）。當在 Unity 做物理、多人連線/netcode、著色器、動畫、音訊、介面，或 2D/isometric 排序與 Tilemap 時使用。寫 code/資產見 unity-scripting、效能建置見 unity-optimization、引擎中立設計見 sg-game-dev-skills。含 C#。
 ---
 
 # Unity 執行期系統（Unity Runtime）
@@ -41,6 +41,7 @@ description: Unity 執行期表現系統的實作決策與坑——七家族：�
 |------|-----|
 | Unity netcode 方案選型：NGO/Netcode for Entities/Mirror/FishNet/Photon | `references/net-solution-selection.md` |
 | NGO 實作：NetworkVariable vs RPC、ownership/authority、NetworkTransform 插值 | `references/net-ngo-patterns.md` |
+| FishNet 實作：SyncVar<T>/RPC、Prediction（Replicate/Reconcile）、EOS P2P 免伺服器 | `references/net-fishnet-and-eos.md` |
 
 ## Anim（動畫與演出）
 

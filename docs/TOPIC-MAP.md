@@ -36,7 +36,7 @@
 | 主題 | game-dev 收 | unity-dev 收 | 裁決 |
 |------|------------|-------------|------|
 | **效能** | `game-tooling/perf-`：引擎中立方法論（先量測再優化、預算思維、瓶頸分類） | `unity-optimization/perf-`：Unity 具體（GC/Alloc、draw call、SRP Batcher、DOTS、Profiler） | 通用方法論→game-dev；碰到 Unity API/Profiler 數字→unity |
-| **多人連線** | `game-architecture/net-`：概念與選型（預測、延遲補償、rollback、權威模型） | `unity-runtime/net-`：NGO/Netcode 具體（NetworkVariable vs RPC、ownership、NetworkTransform） | 概念/選型→game-dev；NGO 具體 API→unity |
+| **多人連線** | `game-architecture/net-`：概念與選型（預測、延遲補償、rollback、權威模型） | `unity-runtime/net-`：NGO/FishNet 具體（SyncVar vs RPC、ownership、Prediction、EOS P2P transport） | 概念/選型→game-dev；框架具體 API→unity |
 | **音訊** | `game-production/audio-`：資產標準與驗收（響度基準、格式、命名） | `unity-runtime/audio-`：Unity 實作（AudioMixer、snapshot、空間音訊） | 標準/驗收→game-dev；引擎實作→unity |
 | **UI/UX** | `game-production/ui-`：UX 規範與流程（資訊層級、可用性、在地化預留） | `unity-runtime/ui-`：uGUI/UI Toolkit 具體（Canvas、rebuild、raycast） | 規範/流程→game-dev；引擎實作→unity |
 | **動畫/特效** | `game-production/anim-`：資產標準與交付、逐幀 vs 骨骼（Spine 類）選型 | `unity-runtime/anim-`：Animator/Timeline 具體、2D 骨骼（2D Animation package/Spine runtime） | 標準/選型→game-dev；引擎實作→unity |
