@@ -45,6 +45,7 @@
 | **存檔** | `game-architecture/system-foundation` 存檔架構節：純資料快照、原子寫入、版本遷移、autosave 時機（另見 `data-network-sync` 序列化原則） | `unity-scripting/asset-save-persistence`：Unity 具體（PlayerPrefs vs 檔案、serializer 選型、平台坑） | 原則→game-dev；存哪/用哪個 serializer/平台坑→unity |
 | **平台** | `game-production/platform-`：平台設計約束（觸控/發熱降級/商店審查/顯示碎片化/Steam 慣例） | `unity-optimization/build-platform`：Unity 平台設定與 build 具體 | 設計約束與審查流程→game-dev；Unity 設定/API→unity |
 | **2D/isometric** | `game-architecture/algo-2d-projection-and-grids`：視角/格子選型、2.5D 岔路、座標三空間數學、y-sort 規則 | `unity-runtime/2d-`：Unity 具體（Transparency Sort Axis、SortingGroup、Isometric Tilemap、Pixel Perfect） | 選型/數學/排序規則→game-dev；Unity 元件與設定→unity |
+| **Tilemap** | `game-production/art-tileset-tilemap-standards`：tileset 規格與 id 穩定、autotile 模板、層結構規範、內建 vs 外部編輯器選型 | `unity-runtime/2d-tilemap-workflow`：Rule Tile、Composite 碰撞、批次 SetTiles、importer | 規範/選型→game-dev；Unity 元件與 API→unity |
 
 ## 無重疊（各自獨佔）
 

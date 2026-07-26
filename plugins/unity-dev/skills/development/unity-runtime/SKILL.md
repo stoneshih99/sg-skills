@@ -19,7 +19,7 @@ description: Unity 執行期表現系統的實作決策與坑——七家族：�
 | 動畫/演出：Animator、Timeline、Tween | 動畫 | ↓ Anim |
 | 音訊：AudioMixer、AudioSource、匯入 | 音訊 | ↓ Audio |
 | 介面：uGUI vs UI Toolkit、Canvas 效能 | UI | ↓ UI |
-| 2D：sprite 排序、y-sort、Isometric Tilemap、像素完美 | 2D | ↓ 2D |
+| 2D：sprite 排序、y-sort、Tilemap/Rule Tile、isometric、像素完美 | 2D | ↓ 2D |
 
 ## Physics（物理）
 
@@ -69,3 +69,4 @@ description: Unity 執行期表現系統的實作決策與坑——七家族：�
 | 何時 | 讀 |
 |------|-----|
 | sorting 決策鏈與 y-sort、SortingGroup、Isometric Tilemap 設定、Pixel Perfect | `references/2d-sorting-and-isometric.md` |
+| Tilemap 工作流：Rule Tile、Composite 碰撞、批次 SetTiles、LDtk/Tiled importer | `references/2d-tilemap-workflow.md` |

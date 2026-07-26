@@ -59,6 +59,7 @@ description: 遊戲生產流程與資產標準的單一知識入口：流程三�
 | sprite / tilemap / UI / 動畫 / 3D 各類製作要點 | `references/art-asset-types.md` |
 | 畫面驗收、「看不清楚」 | `references/art-visual-readability.md` |
 | 資產從哪來：自繪/資產包/外包/AI 生成選型、AI 管線邊界與揭露 | `references/art-asset-sourcing.md` |
+| tile-based 規範：tileset 規格與 id 穩定、autotile 模板、層結構、編輯器選型 | `references/art-tileset-tilemap-standards.md` |
 
 ## Audio（音訊標準）
 
