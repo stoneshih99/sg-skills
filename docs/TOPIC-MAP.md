@@ -20,6 +20,7 @@
 | dev | `debugging/debug-methodology` | process- / locate- / observe- |
 | dev | `regex/regex-patterns` | mechanics- / safety- / design- |
 | dev | `cli/cli-design` | contract- / interface- / ux- |
+| dev | `patterns/design-patterns` | creational- / structural- / behavioral- |
 
 ## 分層原則
 
@@ -51,7 +52,7 @@
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
 - unity-dev 獨佔：C# 腳本架構、Input System、Asset 匯入管線、Editor 擴充、Shader、物理。
-- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**、regex（pattern 語言與坑）、CLI **設計**（寫行為良好的命令列程式）——通用工程，不會撞到另兩個 plugin。
+- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**、regex（pattern 語言與坑）、CLI **設計**（寫行為良好的命令列程式）、設計模式（**選型與坑**，非教學）——通用工程，不會撞到另兩個 plugin。
 
 > **clean-code 的邊界**：收語言中立的可讀性/可維護性**決策**（命名表意、抽函式、code smell→重構）；**不收**具體風格慣例（PascalCase、縮排、`_` 前綴——那是團隊/語言硬規則，留使用者 CLAUDE.md 與 formatter/linter）。也別跟 game-architecture 混：那是宏觀系統設計（領域模型 vs 資料驅動），clean-code 是微觀程式碼品質。
 
@@ -60,6 +61,8 @@
 > **regex vs shell 的邊界（dev 內部）**：`regex/regex-patterns` 收 **pattern 語言本身與坑**（貪婪、anchor、回溯 ReDoS、flavor 可攜、何時別用 regex）；`shell/shell-scripting` 的 `text-` 收 **grep/sed/awk 工具選型與 pipeline**。「這個 regex 為什麼 match 太多/卡死」→ regex；「該用 grep 還是 awk、怎麼串管道」→ shell。grep/sed 的 BRE/ERE flavor 差異放 regex 的 safety 家族。
 
 > **regex ReDoS vs debug 的軟邊界（已知、可接受）**：「regex 讓服務卡死」是兩段式——症狀是服務 hang（`debug-methodology` 先定位/確認是哪條 regex），修法是 ReDoS（`regex-patterns` 的 safety 家族）。sonnet probe 時這題落 debug 是合理的（先定位再 fix），不視為誤觸、不為它調 description。
+
+> **design-patterns 的邊界（含 overlap 詞 FSM/singleton/observer）**：dev 的 `patterns/design-patterns` 收**通用 pattern 的選型判準與坑**（語言領域中立，不教定義——Claude 已知）。與 clean-code 分層：clean-code 是微觀可讀性（命名/函式/smell），patterns 是結構選型。跨 plugin 的 overlap 詞分工——「FSM 該怎麼實作」（enum/state 物件/轉移表）→ dev；「遊戲 AI 用 FSM 還是 BT」→ game-dev `system-game-ai`；「singleton 的通用毒性與替代階梯」→ dev；「遊戲引擎的模組生命週期/服務表」→ game-dev `system-foundation`；「Unity 的服務定位落地」→ unity `script-architecture-glue`。通用論證→dev；遊戲/引擎落地→另兩個 plugin。
 
 > **cli vs shell 的邊界（dev 內部）**：`cli/cli-design` 收**設計/寫一個命令列程式**（stdout/stderr 契約、exit code、flag 慣例、--help/TTY UX）；`shell/shell-scripting` 收**寫腳本呼叫/串接既有工具**。「我的工具的介面/輸出該怎麼設計」→ cli；「怎麼寫腳本串 grep/awk」→ shell。兩者互補：cli 遵守契約，shell 的腳本才串得動。工具**用法教學**（jq 怎麼下參數）兩邊都不收——Claude 已知。
 

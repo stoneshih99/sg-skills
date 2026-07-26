@@ -10,9 +10,9 @@
 |--------|------|------|------|
 | **sg-game-dev-skills**（plugins/game-dev） | 0.26.0 | 5 hub / 87 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/unity-dev） | 0.16.0 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
-| **sg-dev-skills**（plugins/dev） | 0.6.0 | 6 hub / 22 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 |
+| **sg-dev-skills**（plugins/dev） | 0.7.0 | 7 hub / 25 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 / 設計模式 |
 
-合計 14 hub、145 篇 reference。
+合計 15 hub、148 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -41,7 +41,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui/2d，7 家族、description 已超 ~400 字元準則，**再加家族前先拆 hub**）、unity-optimization（perf/build）。
 
-**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
+**dev**：git-workflow（六域 8 篇）、shell-scripting（safety/text）、clean-code（naming/function/smell，語言中立可讀性/重構決策，不含風格慣例）、debug-methodology（process/locate/observe，通用除錯方法論；與 game-tooling 的 debug- 工具家族分層見 TOPIC-MAP）、regex-patterns（mechanics/safety/design，pattern 語言與坑；與 shell text- 的工具選型分層見 TOPIC-MAP）、cli-design（contract/interface/ux，設計行為良好的命令列程式；與 shell 的「寫腳本串工具」互補，見 TOPIC-MAP）、design-patterns（creational/structural/behavioral，pattern 選型與坑非教學；FSM/singleton/observer 三個 overlap 詞的跨 plugin 分工見 TOPIC-MAP）。正交，routing 邊界最清楚。**六 hub 全於 2026-07-24 一日建成，既定候選（shell/clean-code/除錯方法論/regex/CLI）全數完成**，後續實戰需求驅動。
 
 ## 待辦
 
@@ -58,6 +58,8 @@
 - [x] tile-based 雙層：game-production 加 art-tileset-tilemap-standards（tileset 規格/autotile 模板/層結構/編輯器選型）、unity-runtime 加 2d-tilemap-workflow（Rule Tile/Composite 碰撞/批次 API）；TOPIC-MAP 補 Tilemap 裁決行（2026-07-26）。
 - [x] game-design 加 gdd-deconstruction（參考作拆解：五切面/兩輪紀律/三張表，gdd 既有家族；發想鏈缺口之一，另一缺口「量化市場調研」暫緩，2026-07-26）。
 - [x] unity-runtime 加 net-fishnet-and-eos（FishNet v4 SyncVar<T>/Prediction v2/EOS P2P listen-server 架構真相；net 既有家族，description 的框架列舉補 FishNet 與 EOS，2026-07-26）。
+- [x] dev 開 design-patterns hub（patterns 分類，creational/structural/behavioral 三篇；TOPIC-MAP 補邊界節與 overlap 詞分工，2026-07-26）。
+- [ ] design-patterns hub 的 sonnet probe（vs clean-code、vs game-architecture 的 FSM/singleton 邊界）——照 dev 每加一 hub 都實裝 probe 的慣例，尚未跑。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 
