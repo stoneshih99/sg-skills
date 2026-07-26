@@ -1,7 +1,7 @@
 {
   "name": "sg-game-dev-skills",
   "description": "個人用遊戲開發 Agent Skills：工具、架構、工作流、畫圖、企畫。引擎中立。",
-  "version": "0.25.0",
+  "version": "0.26.0",
   "author": { "name": "Stone", "email": "seaglegames@gmail.com" },
   "skills": [
     "./skills/tools",

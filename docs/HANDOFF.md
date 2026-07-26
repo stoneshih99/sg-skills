@@ -8,11 +8,11 @@
 
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
-| **sg-game-dev-skills**（plugins/game-dev） | 0.25.0 | 5 hub / 86 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
+| **sg-game-dev-skills**（plugins/game-dev） | 0.26.0 | 5 hub / 87 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/unity-dev） | 0.15.0 | 3 hub / 35 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
 | **sg-dev-skills**（plugins/dev） | 0.6.0 | 6 hub / 22 篇 | 通用工程（不限遊戲）。git / shell / Clean Code / 除錯方法論 / regex / CLI 設計 |
 
-合計 14 hub、143 篇 reference。
+合計 14 hub、144 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -56,6 +56,7 @@
 - [x] 2D/isometric 雙層：game-architecture 加 algo-2d-projection-and-grids（algo 既有家族）、unity-runtime 開 2d- 家族（新域擴 description）；TOPIC-MAP 補 2D 裁決行（2026-07-25）。
 - [x] 美術資產生成三篇：art-asset-sourcing（AI/外包/資產包選型）、anim-2d-frames-vs-skeletal（逐幀 vs Spine 類骨骼）、unity anim-2d-spritesheet-and-skeletal（2D Animation vs Spine runtime）——全落既有家族，不動 description（2026-07-25）。
 - [x] tile-based 雙層：game-production 加 art-tileset-tilemap-standards（tileset 規格/autotile 模板/層結構/編輯器選型）、unity-runtime 加 2d-tilemap-workflow（Rule Tile/Composite 碰撞/批次 API）；TOPIC-MAP 補 Tilemap 裁決行（2026-07-26）。
+- [x] game-design 加 gdd-deconstruction（參考作拆解：五切面/兩輪紀律/三張表，gdd 既有家族；發想鏈缺口之一，另一缺口「量化市場調研」暫緩，2026-07-26）。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 

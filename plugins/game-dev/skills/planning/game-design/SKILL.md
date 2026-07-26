@@ -13,7 +13,7 @@ description: 遊戲企畫與設計的單一知識入口，四域：立項與企�
 
 | 你的問題 | 域 | 細表 |
 |----------|----|------|
-| 立項（創意/玩法/數值）、核心循環、範圍、風險、定位、經濟 | 企畫書 | ↓ GDD |
+| 立項（創意/玩法/數值）、拆參考作、核心循環、範圍、風險、定位、經濟 | 企畫書 | ↓ GDD |
 | 設計一個關卡、節奏平淡、教學關 | 關卡 | ↓ Level |
 | 「不夠爽」「遲鈍」「飄」——手感排查 | 手感 | ↓ Feel |
 | 驗證原型、排玩測、問卷訪談 | 玩測 | ↓ Playtest |
@@ -27,6 +27,7 @@ description: 遊戲企畫與設計的單一知識入口，四域：立項與企�
 | 何時 | 讀 |
 |------|-----|
 | 還沒有點子 / 要立項：創意生成、篩選漏斗、立項判準 | `references/gdd-ideation.md` |
+| 拆解參考作：循環/經濟/前 30 分鐘釣子五切面、轉立項三張表 | `references/gdd-deconstruction.md` |
 | 設計玩法機制：有趣決策、深度 vs 複雜度、機制組合 | `references/gdd-mechanics-design.md` |
 | 核心玩法 / 循環要拆解 | `references/gdd-core-loop-design.md` |
 | 填「範圍」欄、範圍膨脹 | `references/gdd-scope-cutting.md` |
