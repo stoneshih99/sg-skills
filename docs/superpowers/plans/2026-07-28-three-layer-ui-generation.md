@@ -494,7 +494,7 @@ claude plugin validate .
 git diff --check
 ```
 
-Expected: all pass, with link count greater than 696 and all three plugins reported compatible.
+Expected: all pass, with link count `>=696`; zero broken links and cross-plugin warnings are the primary conditions, and all three plugins are reported compatible.
 
 - [ ] **Step 5: Commit**
 
@@ -530,7 +530,7 @@ git diff --check
 git status --short --branch
 ```
 
-Expected: all validators pass; worktree is clean; branch is `main` ahead of `origin/main`.
+Expected: all validators pass; the approved worktree is clean and, relative to `origin/main`, ahead and behind are both 0.
 
 - [ ] **Step 2: Run an isolated Codex local-install smoke**
 

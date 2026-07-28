@@ -2,9 +2,9 @@
 
 > **寫新內容前查這張表**：確認主題歸哪個 plugin 哪個 hub。這是 monorepo 防「跨 plugin 重複設計」的核心工具——同一主題只該有一個家。
 
-## 全 hub 一覽
+## Hub 與獨立 skills/workflows 一覽
 
-| Plugin | Hub（分類/入口） | 家族前綴 |
+| Plugin | Hub／獨立 skill/workflow（分類／入口） | 家族前綴 |
 |--------|-----------------|---------|
 | game-dev | `game-design` | gdd- / level- / feel- / playtest- |
 | game-dev | `game-architecture` | algo- / data- / system- / net- |
