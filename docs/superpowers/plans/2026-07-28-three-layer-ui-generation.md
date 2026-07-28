@@ -65,10 +65,10 @@ Expected RED: at least one of `reference boundary`、`observations vs assumption
 
 - [ ] **Step 2: Initialize the skill**
 
-Read `/Users/stone/.codex/skills/.system/skill-creator/references/openai_yaml.md`, then run:
+Read `${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/references/openai_yaml.md`, then run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/init_skill.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_skill.py" \
   reference-to-ui-spec \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Reference to UI Spec" \
@@ -135,7 +135,7 @@ Dispatch a fresh agent with:
 
 ```text
 Use $reference-to-ui-spec at
-/Volumes/WorkSpace/Projects/Github/sg-skills/plugins/sg-dev-skills/skills/reference-to-ui-spec
+plugins/sg-dev-skills/skills/reference-to-ui-spec
 to solve this request:
 
 請把這份 UI 參考描述轉成可以交給工程師實作的規格：
@@ -151,7 +151,7 @@ Expected GREEN: all twelve RED rubric fields are explicit, mobile behavior is la
 Run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
   plugins/sg-dev-skills/skills/reference-to-ui-spec
 python3 scripts/check-links.py
 git diff --check
@@ -209,7 +209,7 @@ Expected RED: at least one boundary, state mapping, reduced-motion check, runtim
 Run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/init_skill.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_skill.py" \
   build-ui-from-spec \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Build UI from Spec" \
@@ -271,7 +271,7 @@ Run the same RED scenario with:
 
 ```text
 Use $build-ui-from-spec at
-/Volumes/WorkSpace/Projects/Github/sg-skills/plugins/sg-dev-skills/skills/build-ui-from-spec
+plugins/sg-dev-skills/skills/build-ui-from-spec
 to solve the request.
 ```
 
@@ -282,7 +282,7 @@ Expected GREEN: all eight rubric behaviors appear, project reuse precedes new co
 Run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
   plugins/sg-dev-skills/skills/build-ui-from-spec
 python3 scripts/check-links.py
 git diff --check
@@ -340,7 +340,7 @@ Expected RED: at least one evidence category、分類、state、reduced-motion �
 Run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/init_skill.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_skill.py" \
   visual-ui-qa \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Visual UI QA" \
@@ -403,7 +403,7 @@ Run the RED scenario with:
 
 ```text
 Use $visual-ui-qa at
-/Volumes/WorkSpace/Projects/Github/sg-skills/plugins/sg-dev-skills/skills/visual-ui-qa
+plugins/sg-dev-skills/skills/visual-ui-qa
 to solve the request.
 ```
 
@@ -414,7 +414,7 @@ Expected GREEN: all ten rubric behaviors are present, findings are evidence-back
 Run:
 
 ```bash
-python3 /Users/stone/.codex/skills/.system/skill-creator/scripts/quick_validate.py \
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
   plugins/sg-dev-skills/skills/visual-ui-qa
 python3 scripts/check-links.py
 git diff --check
