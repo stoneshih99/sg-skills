@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual UI QA"
+  short_description: "以可重現證據驗收 UI 視覺、響應式、可及性與互動狀態"
+  default_prompt: "請依規格驗收這個 UI，產生附證據且按嚴重度排序的報告。"
