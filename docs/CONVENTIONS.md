@@ -23,6 +23,10 @@
 - SKILL.md 開頭加**定位聲明**（知識入口或可執行工作流、與其他 hub 的搭配）。
 - 新增主題 = 加 reference + 細表加一行；只有出現「新的域」才擴 description。
 
+### 可執行 workflow 的例外
+
+最多三個邊界清楚、可各自執行的 workflow 可維持獨立 skill；知識集合仍使用 hub。當出現四個以上彼此重疊的 workflow 時，必須重新檢視是否合併為 hub。
+
 ### hub description 的撰寫原則
 
 description 是**使用者會說出口的話**，不是目錄——「讀哪一篇」由路由表負責，description 只需讓模型決定「要不要開這個 hub」。

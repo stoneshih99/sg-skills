@@ -1,7 +1,7 @@
 {
   "name": "sg-dev-skills",
-  "description": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式的實作決策與坑。",
-  "version": "0.8.1",
+  "description": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式的實作決策與坑，以及 UI 參考轉規格、依規格實作、視覺 QA。",
+  "version": "0.9.0",
   "author": {
     "name": "Stone",
     "email": "seaglegames@gmail.com"
@@ -10,8 +10,8 @@
   "repository": "https://github.com/stoneshih99/sg-skills",
   "interface": {
     "displayName": "SG Dev Skills",
-    "shortDescription": "通用軟體工程的實作決策與除錯方法",
-    "longDescription": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式的實作決策與坑。",
+    "shortDescription": "通用軟體工程決策、除錯與三階段 UI workflow",
+    "longDescription": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式的實作決策與坑，以及 UI 參考轉規格、依規格實作、視覺 QA。",
     "developerName": "Stone",
     "category": "Developer Tools",
     "capabilities": ["Guidance"],

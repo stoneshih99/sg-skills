@@ -6,9 +6,17 @@ Stone 的個人 **Agent Skills marketplace**，同時支援 Claude Code Plugin �
 |--------|----|------|------|
 | **sg-game-dev-skills** | 引擎中立遊戲（What/Why） | 一人工作室的虛擬部門顧問團 | 企畫 / 架構 / 工具 / 工作流 / 畫圖，5 hub |
 | **sg-unity-dev-skills** | Unity 具體（How in Unity） | 接住 game-dev 刻意留白的引擎實作 | 腳本 / 執行期 / 優化，3 hub |
-| **sg-dev-skills** | 通用工程（不限遊戲） | 跨領域決策與坑 | git / shell / Clean Code / 除錯方法論 / regex / CLI / 設計模式，7 hub |
+| **sg-dev-skills** | 通用工程（不限遊戲） | 跨領域決策與坑 | git / shell / Clean Code / 除錯方法論 / regex / CLI / 設計模式 / UI 參考轉規格 / 依規格實作 / 視覺 QA，10 skills |
 
 三者**分層正交**：game-dev 講「該怎麼設計、為什麼」，unity 講「在 Unity 具體怎麼做」，dev 講「跟遊戲無關的通用工程」。
+
+## UI 三階段 workflow
+
+1. `reference-to-ui-spec`：把截圖、網站或其他參考整理成可驗收的 UI spec。
+2. `build-ui-from-spec`：依已確認的 UI spec，在既有前端或 UI 專案完成實作。
+3. `visual-ui-qa`：以 spec 與可重現證據驗收可執行 UI，回報視覺與互動問題。
+
+遊戲 UI/UX 的設計決策仍由 `sg-game-dev-skills` 處理；Unity 的 uGUI、UI Toolkit 與 API 實作仍由 `sg-unity-dev-skills` 處理。
 
 ## 為什麼需要這些 skill
 

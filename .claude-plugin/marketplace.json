@@ -16,7 +16,7 @@
     {
       "name": "sg-dev-skills",
       "source": "./plugins/sg-dev-skills",
-      "description": "通用軟體工程（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式。"
+      "description": "通用軟體工程（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式，以及 UI 參考轉規格、依規格實作、視覺 QA。"
     }
   ]
 }
