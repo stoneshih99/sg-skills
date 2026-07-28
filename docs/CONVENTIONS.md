@@ -1,6 +1,6 @@
 # Skill 撰寫規範（三 plugin 共用）
 
-本 monorepo 三個 plugin（game-dev / unity-dev / dev）共用同一套 hub playbook。差異只在題材與偽代碼語言，結構與紀律一致。
+本 monorepo 三個 plugin（sg-game-dev-skills / sg-unity-dev-skills / sg-dev-skills）共用同一套 hub playbook。差異只在題材與偽代碼語言，結構與紀律一致。
 
 ## 定位（收什麼、不收什麼）
 
@@ -10,9 +10,9 @@
 
 ## 目錄與分類
 
-- 每個 plugin 在 `plugins/<x>/`，內含 `.claude-plugin/plugin.json` + `skills/`。
-- Skill 放在分類資料夾下，分類即 plugin.json `skills` 陣列的一行路徑。
-- 新增分類：建資料夾 + plugin.json `skills` 加一行。
+- 每個 plugin 在 `plugins/<plugin-name>/`，內含 `.claude-plugin/plugin.json`、`.codex-plugin/plugin.json` 與共用 `skills/`。
+- Skill hub 直接放在 `skills/<hub>/`；Claude manifest 明列各 hub，Codex manifest 指向整個 `./skills`。
+- 新增 hub：建立 `skills/<hub>/`，並在 Claude manifest 的 `skills` 陣列加一行；Codex manifest 不需改路徑。
 
 ## 單一入口模式（hub skill）
 
@@ -40,17 +40,18 @@ description 是**使用者會說出口的話**，不是目錄——「讀哪一�
 
 ## cross-link 規則
 
-- **同 plugin 內**用相對路徑：reference 到同 plugin 其他 hub 是 `../../../<category>/<hub>/references/<file>.md`（從 references/ 出發往上三層到 skills/）。
+- **同 plugin 內**用相對路徑：reference 到同 plugin 其他 hub 是 `../../<hub>/references/<file>.md`（從 references/ 出發往上兩層到 skills/）。
 - **跨 plugin**一律**文字提及**，不用相對路徑——安裝後各 plugin 獨立快取，跨 plugin 相對連結會斷。
 
 ## 改動後必跑
 
 1. `python3 scripts/check-links.py`——全 monorepo 連結檢查。
-2. frontmatter description ≤ 1536、hub description ≤ ~400。
-3. `claude plugin validate .`
+2. `python3 scripts/check-plugin-compat.py`——雙平台 marketplace、manifest 與 skill 結構檢查。
+3. frontmatter description ≤ 1536、hub description ≤ ~400。
+4. `claude plugin validate .`
 
-第 1、3 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，斷鏈或 validate 失敗擋下 commit）——「機器可查的進 hook」。第 2 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
+第 1、2、4 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，失敗擋下 commit）——「機器可查的進 hook」。第 3 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
 
 ## 發佈
 
-改 `plugins/<x>/` 內容 → bump `plugins/<x>/.claude-plugin/plugin.json` version → commit → push → `claude plugin update <plugin>@sg-skills`。只 bump 動到的 plugin。
+改 `plugins/<plugin-name>/` 內容 → 同步 bump `.claude-plugin/plugin.json` 與 `.codex-plugin/plugin.json` version → commit → push。Claude Code 用 `claude plugin update <plugin>@sg-skills`；Codex 依序執行 `codex plugin marketplace upgrade sg-skills`、`codex plugin add <plugin>@sg-skills`，再開新 task 載入新版 skill。只 bump 動到的 plugin。

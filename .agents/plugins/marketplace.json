@@ -1,0 +1,44 @@
+{
+  "name": "sg-skills",
+  "interface": {
+    "displayName": "SG Skills"
+  },
+  "plugins": [
+    {
+      "name": "sg-game-dev-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sg-game-dev-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "sg-unity-dev-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sg-unity-dev-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "sg-dev-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/sg-dev-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

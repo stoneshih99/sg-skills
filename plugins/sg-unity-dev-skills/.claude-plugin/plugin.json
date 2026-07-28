@@ -1,0 +1,11 @@
+{
+  "name": "sg-unity-dev-skills",
+  "description": "Unity 專屬遊戲開發 Agent Skills：腳本/資產/效能/編輯器/UI 的實作決策與坑。",
+  "version": "0.16.3",
+  "author": { "name": "Stone", "email": "seaglegames@gmail.com" },
+  "skills": [
+    "./skills/unity-optimization",
+    "./skills/unity-runtime",
+    "./skills/unity-scripting"
+  ]
+}

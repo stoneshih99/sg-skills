@@ -14,7 +14,7 @@
 - Share one canonical copy of every skill; do not add copied trees, symlinks, or generated plugin artifacts.
 - Do not change skill knowledge content or triggering descriptions.
 - Do not add MCP servers, apps, hooks, or unrelated plugin capabilities.
-- Preserve existing plugin versions and use the same version in each platform manifest.
+- Bump each plugin by one patch release for the packaging change and use the same version in both platform manifests.
 
 ---
 
