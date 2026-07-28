@@ -72,7 +72,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_s
   reference-to-ui-spec \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Reference to UI Spec" \
-  --interface short_description="把截圖、影片或網站參考轉成可驗收 UI 規格" \
+  --interface short_description="把截圖、影片或網站參考轉成可驗收且可交付的完整 UI 規格" \
   --interface default_prompt="請分析我提供的 UI 參考，建立一份可交給實作者的 UI 規格。"
 ```
 
@@ -213,7 +213,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_s
   build-ui-from-spec \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Build UI from Spec" \
-  --interface short_description="依 UI 規格在現有技術棧建立可執行介面" \
+  --interface short_description="依 UI 規格與現有技術棧建立可執行且可驗證的完整介面" \
   --interface default_prompt="請依照這份 UI 規格，在目前專案建立並驗證介面。"
 ```
 
@@ -344,7 +344,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_s
   visual-ui-qa \
   --path plugins/sg-dev-skills/skills \
   --interface display_name="Visual UI QA" \
-  --interface short_description="以可重現證據驗收 UI 視覺、響應式與互動" \
+  --interface short_description="以可重現證據驗收 UI 視覺、響應式、可及性與互動狀態" \
   --interface default_prompt="請依規格驗收這個 UI，產生附證據且按嚴重度排序的報告。"
 ```
 
