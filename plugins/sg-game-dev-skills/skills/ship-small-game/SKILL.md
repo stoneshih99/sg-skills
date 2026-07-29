@@ -36,3 +36,9 @@ Preflight → Game Contract → Production Blueprint → Vertical Slice → Cont
 ## 證據邊界
 
 每項驗收只可標記 Verified、Unverified 或 Blocked。沒有執行證據不得宣告完成。
+
+## 路由與恢復
+
+- 分派專業工作前讀 [department-routing.md](references/department-routing.md)。
+- 接手既有專案、範圍失控或能力受阻時讀 [recovery-and-scope-control.md](references/recovery-and-scope-control.md)。
+- 每次工作完成後回寫 roadmap、acceptance matrix 與 production status。
