@@ -5,18 +5,18 @@
   "plugins": [
     {
       "name": "sg-game-dev-skills",
-      "source": "./plugins/game-dev",
-      "description": "引擎中立遊戲開發：工具、架構、工作流、畫圖、企畫（What/Why）。"
+      "source": "./plugins/sg-game-dev-skills",
+      "description": "引擎中立遊戲開發：工具、架構、工作流、畫圖、企畫與完整遊戲交付（What/Why）。"
     },
     {
       "name": "sg-unity-dev-skills",
-      "source": "./plugins/unity-dev",
+      "source": "./plugins/sg-unity-dev-skills",
       "description": "Unity 專屬實作：腳本/資產/效能/編輯器/UI 的決策與坑（How in Unity）。"
     },
     {
       "name": "sg-dev-skills",
-      "source": "./plugins/dev",
-      "description": "通用軟體工程（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式。"
+      "source": "./plugins/sg-dev-skills",
+      "description": "通用軟體工程（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式，以及 UI 證據、規格、設計系統、實作與視覺回歸。"
     }
   ]
 }

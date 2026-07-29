@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build UI from Spec"
+  short_description: "依 UI 規格與設計系統建立可執行、可重用且可穩定驗證的介面"
+  default_prompt: "請依照這份 UI 規格與既有設計系統，在目前專案建立介面及可重現的驗證狀態。"

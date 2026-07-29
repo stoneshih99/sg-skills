@@ -18,3 +18,4 @@ Icon?
 # 日誌 / 暫存
 *.log
 tmp/
+.worktrees/

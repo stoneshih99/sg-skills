@@ -1,0 +1,22 @@
+{
+  "name": "sg-unity-dev-skills",
+  "description": "Unity 專屬遊戲開發 Agent Skills：腳本/資產/效能/編輯器/UI 的實作決策與坑。",
+  "version": "0.16.3",
+  "author": {
+    "name": "Stone",
+    "email": "seaglegames@gmail.com"
+  },
+  "skills": "./skills",
+  "repository": "https://github.com/stoneshih99/sg-skills",
+  "interface": {
+    "displayName": "SG Unity Dev Skills",
+    "shortDescription": "Unity 腳本、執行期與效能實作決策",
+    "longDescription": "Unity 專屬遊戲開發 Agent Skills：腳本/資產/效能/編輯器/UI 的實作決策與坑。",
+    "developerName": "Stone",
+    "category": "Developer Tools",
+    "capabilities": ["Guidance"],
+    "defaultPrompt": [
+      "請用 sg-unity-dev-skills 協助我評估這個 Unity 實作方案。"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visual UI QA"
+  short_description: "以可重現證據驗收 UI，或規劃 deterministic screenshot regression"
+  default_prompt: "請依我的目的驗收這個 UI，或建立包含 baseline 與 CI 契約的視覺回歸計畫。"

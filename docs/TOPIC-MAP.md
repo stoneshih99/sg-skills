@@ -2,25 +2,29 @@
 
 > **寫新內容前查這張表**：確認主題歸哪個 plugin 哪個 hub。這是 monorepo 防「跨 plugin 重複設計」的核心工具——同一主題只該有一個家。
 
-## 全 hub 一覽
+## Hub 與獨立 skills/workflows 一覽
 
-| Plugin | Hub（分類/入口） | 家族前綴 |
+| Plugin | Hub／獨立 skill/workflow（分類／入口） | 家族前綴 |
 |--------|-----------------|---------|
-| game-dev | `planning/game-design` | gdd- / level- / feel- / playtest- |
-| game-dev | `architecture/game-architecture` | algo- / data- / system- / net- |
-| game-dev | `tools/game-tooling` | debug- / perf- / telemetry- |
-| game-dev | `workflow/game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- / platform- |
-| game-dev | `diagram/game-diagrams` | （四種圖型） |
-| unity-dev | `development/unity-scripting` | script- / input- / asset- / test- / editor- |
-| unity-dev | `development/unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- / 2d- |
-| unity-dev | `development/unity-optimization` | perf- / build- |
-| dev | `vcs/git-workflow` | branch- / history- / recovery- / commit- / conflict- / remote- |
-| dev | `shell/shell-scripting` | safety- / text- |
-| dev | `craft/clean-code` | naming- / function- / smell- |
-| dev | `debugging/debug-methodology` | process- / locate- / observe- |
-| dev | `regex/regex-patterns` | mechanics- / safety- / design- |
-| dev | `cli/cli-design` | contract- / interface- / ux- |
-| dev | `patterns/design-patterns` | （單篇：singleton 替代 / 狀態機實作 / 進場訊號） |
+| game-dev | `game-design` | gdd- / level- / feel- / playtest- |
+| game-dev | `game-architecture` | algo- / data- / system- / net- |
+| game-dev | `game-tooling` | debug- / perf- / telemetry- |
+| game-dev | `game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- / platform- |
+| game-dev | `game-diagrams` | （四種圖型） |
+| game-dev | `ship-small-game` | 小型完整遊戲總控 workflow：階段、範圍、交接、核准與證據；專業決策路由既有 hubs |
+| unity-dev | `unity-scripting` | script- / input- / asset- / test- / editor- |
+| unity-dev | `unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- / 2d- |
+| unity-dev | `unity-optimization` | perf- / build- |
+| dev | `git-workflow` | branch- / history- / recovery- / commit- / conflict- / remote- |
+| dev | `shell-scripting` | safety- / text- |
+| dev | `clean-code` | naming- / function- / smell- |
+| dev | `debug-methodology` | process- / locate- / observe- |
+| dev | `regex-patterns` | mechanics- / safety- / design- |
+| dev | `cli-design` | contract- / interface- / ux- |
+| dev | `design-patterns` | （單篇：singleton 替代 / 狀態機實作 / 進場訊號） |
+| dev | `reference-to-ui-spec` | UI 證據捕捉 / 參考轉規格 / 設計系統抽取 |
+| dev | `build-ui-from-spec` | 依規格與設計系統實作 UI |
+| dev | `visual-ui-qa` | 人工視覺 QA / 自動視覺回歸 |
 
 ## 分層原則
 
@@ -48,24 +52,28 @@
 | **2D/isometric** | `game-architecture/algo-2d-projection-and-grids`：視角/格子選型、2.5D 岔路、座標三空間數學、y-sort 規則 | `unity-runtime/2d-`：Unity 具體（Transparency Sort Axis、SortingGroup、Isometric Tilemap、Pixel Perfect） | 選型/數學/排序規則→game-dev；Unity 元件與設定→unity |
 | **Tilemap** | `game-production/art-tileset-tilemap-standards`：tileset 規格與 id 穩定、autotile 模板、層結構規範、內建 vs 外部編輯器選型 | `unity-runtime/2d-tilemap-workflow`：Rule Tile、Composite 碰撞、批次 SetTiles、importer | 規範/選型→game-dev；Unity 元件與 API→unity |
 
+| 主題 | dev 收 | game-dev 收 | unity-dev 收 | 裁決 |
+|------|--------|--------------|---------------|------|
+| **UI 產生 workflow** | `reference-to-ui-spec`、`build-ui-from-spec`、`visual-ui-qa`：通用的 UI 證據／規格／設計系統、依規格實作及人工／自動視覺 QA | `game-production/ui-`：遊戲 UI/UX 的資訊層級、可用性與在地化等決策 | `unity-runtime/ui-`：uGUI、UI Toolkit、Canvas 與 Unity API 實作 | 通用 workflow→dev；遊戲 UI/UX 決策→game-dev；Unity 具體實作→unity |
+
 ## 無重疊（各自獨佔）
 
 - game-dev 獨佔：關卡設計、手感、企畫書、演算法、資料驅動架構、系統架構、遙測、除錯工具、畫圖。
 - unity-dev 獨佔：C# 腳本架構、Input System、Asset 匯入管線、Editor 擴充、Shader、物理。
-- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**、regex（pattern 語言與坑）、CLI **設計**（寫行為良好的命令列程式）、設計模式（**選型與坑**，非教學）——通用工程，不會撞到另兩個 plugin。
+- dev 獨佔：git、shell、Clean Code（語言中立可讀性/重構原則）、除錯**方法論**、regex（pattern 語言與坑）、CLI **設計**（寫行為良好的命令列程式）、設計模式（**選型與坑**，非教學），以及 UI 證據／規格／設計系統、依規格實作、人工／自動視覺 QA 的通用 workflow——通用工程，不會撞到另兩個 plugin。
 
 > **clean-code 的邊界**：收語言中立的可讀性/可維護性**決策**（命名表意、抽函式、code smell→重構）；**不收**具體風格慣例（PascalCase、縮排、`_` 前綴——那是團隊/語言硬規則，留使用者 CLAUDE.md 與 formatter/linter）。也別跟 game-architecture 混：那是宏觀系統設計（領域模型 vs 資料驅動），clean-code 是微觀程式碼品質。
 
 > **debug 的邊界（唯一 overlap 詞）**：「debug」在兩處出現但分層——dev 的 `debug-methodology` 收**怎麼找 bug 的通用方法**（重現/二分定位/讀 stack trace，語言領域中立）；game-dev 的 `game-tooling/debug-` 收**做遊戲用的除錯工具**（debug draw、作弊碼、時間控制、遊戲內日誌）。方法論→dev；動手做遊戲的除錯設施→game-dev。
 
-> **regex vs shell 的邊界（dev 內部）**：`regex/regex-patterns` 收 **pattern 語言本身與坑**（貪婪、anchor、回溯 ReDoS、flavor 可攜、何時別用 regex）；`shell/shell-scripting` 的 `text-` 收 **grep/sed/awk 工具選型與 pipeline**。「這個 regex 為什麼 match 太多/卡死」→ regex；「該用 grep 還是 awk、怎麼串管道」→ shell。grep/sed 的 BRE/ERE flavor 差異放 regex 的 safety 家族。
+> **regex vs shell 的邊界（dev 內部）**：`regex-patterns` 收 **pattern 語言本身與坑**（貪婪、anchor、回溯 ReDoS、flavor 可攜、何時別用 regex）；`shell-scripting` 的 `text-` 收 **grep/sed/awk 工具選型與 pipeline**。「這個 regex 為什麼 match 太多/卡死」→ regex；「該用 grep 還是 awk、怎麼串管道」→ shell。grep/sed 的 BRE/ERE flavor 差異放 regex 的 safety 家族。
 
 > **regex ReDoS vs debug 的軟邊界（已知、可接受）**：「regex 讓服務卡死」是兩段式——症狀是服務 hang（`debug-methodology` 先定位/確認是哪條 regex），修法是 ReDoS（`regex-patterns` 的 safety 家族）。sonnet probe 時這題落 debug 是合理的（先定位再 fix），不視為誤觸、不為它調 description。
 
-> **design-patterns 的邊界（含 overlap 詞 FSM/singleton/observer）**：dev 的 `patterns/design-patterns` 收**通用 pattern 的選型判準與坑**（語言領域中立，不教定義——Claude 已知）。與 clean-code 分層：clean-code 是微觀可讀性（命名/函式/smell），patterns 是結構選型。跨 plugin 的 overlap 詞分工——「FSM 該怎麼實作」（enum/state 物件/轉移表）→ dev；「遊戲 AI 用 FSM 還是 BT」→ game-dev `system-game-ai`；「singleton 的通用毒性與替代階梯」→ dev；「遊戲引擎的模組生命週期/服務表」→ game-dev `system-foundation`；「Unity 的服務定位落地」→ unity `script-architecture-glue`。通用論證→dev；遊戲/引擎落地→另兩個 plugin。
+> **design-patterns 的邊界（含 overlap 詞 FSM/singleton/observer）**：dev 的 `design-patterns` 收**通用 pattern 的選型判準與坑**（語言領域中立，不教定義——Claude 已知）。與 clean-code 分層：clean-code 是微觀可讀性（命名/函式/smell），patterns 是結構選型。跨 plugin 的 overlap 詞分工——「FSM 該怎麼實作」（enum/state 物件/轉移表）→ dev；「遊戲 AI 用 FSM 還是 BT」→ game-dev `system-game-ai`；「singleton 的通用毒性與替代階梯」→ dev；「遊戲引擎的模組生命週期/服務表」→ game-dev `system-foundation`；「Unity 的服務定位落地」→ unity `script-architecture-glue`。通用論證→dev；遊戲/引擎落地→另兩個 plugin。
 > **patterns vs clean-code 的軟邊界（已知、可接受）**：「if-else 重複想重構」是兩段式——先判「該不該抽」（真假重複/Rule of Three，`clean-code` 的 smell）、再選「換什麼結構」（strategy/多型，`design-patterns`）。sonnet probe 此題落 clean-code 是合理的；兩邊內容已互接（clean-code smell 表的重複條件分支列指向 pattern-selection），不視為誤觸、不為它調 description。
 
-> **cli vs shell 的邊界（dev 內部）**：`cli/cli-design` 收**設計/寫一個命令列程式**（stdout/stderr 契約、exit code、flag 慣例、--help/TTY UX）；`shell/shell-scripting` 收**寫腳本呼叫/串接既有工具**。「我的工具的介面/輸出該怎麼設計」→ cli；「怎麼寫腳本串 grep/awk」→ shell。兩者互補：cli 遵守契約，shell 的腳本才串得動。工具**用法教學**（jq 怎麼下參數）兩邊都不收——Claude 已知。
+> **cli vs shell 的邊界（dev 內部）**：`cli-design` 收**設計/寫一個命令列程式**（stdout/stderr 契約、exit code、flag 慣例、--help/TTY UX）；`shell-scripting` 收**寫腳本呼叫/串接既有工具**。「我的工具的介面/輸出該怎麼設計」→ cli；「怎麼寫腳本串 grep/awk」→ shell。兩者互補：cli 遵守契約，shell 的腳本才串得動。工具**用法教學**（jq 怎麼下參數）兩邊都不收——Claude 已知。
 
 ## 新增時的自問
 
