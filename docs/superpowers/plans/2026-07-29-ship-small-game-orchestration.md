@@ -197,6 +197,7 @@ git commit -m "test: 加入完整遊戲交付契約檢查"
 - Create: `plugins/sg-game-dev-skills/skills/ship-small-game/templates/delivery-roadmap.md`
 - Create: `plugins/sg-game-dev-skills/skills/ship-small-game/templates/acceptance-matrix.md`
 - Create: `plugins/sg-game-dev-skills/skills/ship-small-game/templates/production-status.md`
+- Modify: `plugins/sg-game-dev-skills/.claude-plugin/plugin.json`
 
 **Interfaces:**
 - Consumes: a vague game idea or an existing project; optional installed game-dev、Unity and UI capabilities
@@ -332,7 +333,17 @@ area 至少預置 Gameplay、Start-To-End、Visual、Content、Code、Tests、Pe
 ## Resume Here
 ```
 
-- [ ] **Step 5: 執行 core GREEN**
+- [ ] **Step 5: 加入 Claude discovery entry**
+
+在 Claude manifest 的既有 `skills` 陣列末尾加入：
+
+```json
+"./skills/ship-small-game"
+```
+
+本 task 不修改 `0.26.1` 版本或其他 release metadata；entry 必須提前加入，讓 repository 的 plugin 相容性 pre-commit 能在 core commit 通過。
+
+- [ ] **Step 6: 執行 core GREEN**
 
 Run:
 
@@ -340,15 +351,18 @@ Run:
 python3 scripts/check-game-delivery-workflow.py core
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/quick_validate.py" \
   plugins/sg-game-dev-skills/skills/ship-small-game
+python3 scripts/check-plugin-compat.py
 git diff --check
 ```
 
-Expected: 三項 exit 0。
+Expected: 四項 exit 0。
 
-- [ ] **Step 6: Commit core**
+- [ ] **Step 7: Commit core**
 
 ```bash
-git add plugins/sg-game-dev-skills/skills/ship-small-game
+git add \
+  plugins/sg-game-dev-skills/skills/ship-small-game \
+  plugins/sg-game-dev-skills/.claude-plugin/plugin.json
 git commit -m "feat: 新增小型遊戲總控骨架"
 ```
 
@@ -524,11 +538,11 @@ Run:
 python3 scripts/check-game-delivery-workflow.py release
 ```
 
-Expected: exit 1，至少指出兩份版本、Claude manifest entry 與 marketplace 描述尚未更新。
+Expected: exit 1，至少指出兩份版本與 marketplace 描述尚未更新。
 
 - [ ] **Step 2: 更新兩份 plugin manifests**
 
-Claude manifest：
+Claude manifest 保留 Task 3 已加入的 skill entry，並更新版本：
 
 ```json
 "version": "0.27.0",

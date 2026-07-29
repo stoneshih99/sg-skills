@@ -8,6 +8,7 @@
     "./skills/game-architecture",
     "./skills/game-production",
     "./skills/game-diagrams",
-    "./skills/game-design"
+    "./skills/game-design",
+    "./skills/ship-small-game"
   ]
 }
