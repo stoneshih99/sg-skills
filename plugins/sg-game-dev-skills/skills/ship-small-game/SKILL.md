@@ -24,6 +24,8 @@ description: Use when 使用者要把小型遊戲從構想或未完成專案一�
 
 Preflight → Game Contract → Production Blueprint → Vertical Slice → Content Complete → Quality Complete → Release Candidate
 
+重大決策核准後，仍須依序完成 Game Contract 與 Production Blueprint 的證據，才能開始 Vertical Slice；不可跳過中間階段。
+
 逐階段規則讀 [stage-gates.md](references/stage-gates.md)。
 
 ## 核心交付物
