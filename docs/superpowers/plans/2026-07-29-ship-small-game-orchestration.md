@@ -213,7 +213,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_s
   --path plugins/sg-game-dev-skills/skills \
   --resources references \
   --interface display_name="Ship Small Game" \
-  --interface short_description="把小型遊戲從構想推進到可驗證的交付 Build" \
+  --interface short_description="把小型遊戲從構想推進到可驗證的交付 Build 流程" \
   --interface default_prompt="請使用 \$ship-small-game 協調企畫、實作、測試與 Build，把這款小型遊戲推進到可交付狀態。"
 ```
 
