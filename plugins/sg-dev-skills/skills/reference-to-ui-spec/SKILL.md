@@ -1,13 +1,23 @@
 ---
 name: reference-to-ui-spec
-description: Use when 使用者提供截圖、影片、網站、HTML、wireframe 或模糊視覺方向，希望分析、重製、借用視覺語法，或先整理成可交付工程實作的 UI 規格
+description: Use when 使用者提供截圖、影片、網站、HTML、wireframe、既有元件或模糊視覺方向，希望捕捉 UI 證據、分析或重製參考、抽取設計系統，或整理成可交付工程實作的 UI 規格
 ---
 
 # Reference to UI Spec
 
 ## 定位
 
-只把 reference 編譯成可驗收的 UI spec，不實作 UI。
+取得或整理 reference 證據，並編譯成可驗收的 UI spec；不實作 UI。
+
+## 模式路由
+
+| 使用者目的 | 執行模式 | 讀取／輸出 |
+|---|---|---|
+| 捕捉完整頁面、影片關鍵幀、互動狀態或來源證據 | **捕捉 UI 證據** | 讀 [capture-ui-evidence.md](references/capture-ui-evidence.md)，輸出 [ui-evidence-manifest.md](templates/ui-evidence-manifest.md) |
+| 從參考、程式碼、多頁 UI 或元件庫抽取 tokens 與 components | **抽取設計系統** | 讀 [extract-ui-design-system.md](references/extract-ui-design-system.md)，輸出 [ui-design-system.md](templates/ui-design-system.md) |
+| 將既有 reference 整理成頁面規格 | **UI spec** | 依本檔流程，輸出 [ui-spec.md](templates/ui-spec.md) |
+
+若使用者直接要求 spec，先判斷既有證據是否足夠；足夠就不重複捕捉。
 
 ## 輸入確認
 

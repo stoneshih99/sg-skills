@@ -1,4 +1,4 @@
 interface:
   display_name: "Reference to UI Spec"
-  short_description: "把截圖、影片或網站參考轉成可驗收且可交付的完整 UI 規格"
-  default_prompt: "請分析我提供的 UI 參考，建立一份可交給實作者的 UI 規格。"
+  short_description: "捕捉 UI 證據、抽取設計系統，或把參考轉成可驗收的完整規格"
+  default_prompt: "請依我的目的捕捉 UI 證據、抽取設計系統，或把參考整理成可交付的 UI 規格。"
