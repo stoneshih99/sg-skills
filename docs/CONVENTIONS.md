@@ -27,6 +27,8 @@
 
 最多三個邊界清楚、可各自執行的 workflow 可維持獨立 skill；知識集合仍使用 hub。當出現四個以上彼此重疊的 workflow 時，必須重新檢視是否合併為 hub。
 
+同一階段的子流程優先放在既有 workflow 的 `references/` 與 `templates/`，由 `SKILL.md` 模式路由。例如 UI 證據捕捉、設計系統抽取與自動視覺回歸分別屬於現有參考／QA 階段，不另增入口。
+
 ### hub description 的撰寫原則
 
 description 是**使用者會說出口的話**，不是目錄——「讀哪一篇」由路由表負責，description 只需讓模型決定「要不要開這個 hub」。
@@ -51,10 +53,11 @@ description 是**使用者會說出口的話**，不是目錄——「讀哪一�
 
 1. `python3 scripts/check-links.py`——全 monorepo 連結檢查。
 2. `python3 scripts/check-plugin-compat.py`——雙平台 marketplace、manifest 與 skill 結構檢查。
-3. frontmatter description ≤ 1536、hub description ≤ ~400。
-4. `claude plugin validate .`
+3. `python3 scripts/check-ui-workflows.py`——UI workflow 能力、資源與版本契約。
+4. frontmatter description ≤ 1536、hub description ≤ ~400。
+5. `claude plugin validate .`
 
-第 1、2、4 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，失敗擋下 commit）——「機器可查的進 hook」。第 3 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
+第 1、2、3、5 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，失敗擋下 commit）——「機器可查的進 hook」。第 4 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
 
 ## 發佈
 

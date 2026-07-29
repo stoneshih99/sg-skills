@@ -176,7 +176,6 @@ skill 提供測試設計與驗證契約；實際 test files、設定與 CI 修�
 - `plugins/sg-dev-skills/.claude-plugin/plugin.json`
 - `plugins/sg-dev-skills/.codex-plugin/plugin.json`
 - `.claude-plugin/marketplace.json`
-- `.agents/plugins/marketplace.json`
 - `README.md`
 - `docs/CONVENTIONS.md`
 - `docs/HANDOFF.md`
@@ -189,7 +188,8 @@ skill 提供測試設計與驗證契約；實際 test files、設定與 CI 修�
 
 - 三個 canonical skills 仍由 Claude Code 與 Codex 共用，不建立平台副本。
 - Claude manifest 的 skills 路徑不增加；Codex manifest 仍指向 `./skills`。
-- `sg-dev-skills` 由 `0.9.0` 提升為 `0.10.0`，兩份 plugin manifest 與兩份 marketplace 同步。
+- `sg-dev-skills` 由 `0.9.0` 提升為 `0.10.0`，兩份 plugin manifest 同步。
+- Claude marketplace 更新使用者可見描述；Codex marketplace 沒有版本或描述欄位，維持既有 source、policy 與 category。
 - `agents/openai.yaml` 只更新既有 display、short description 或 default prompt，使新能力可被發現；不加入未要求的可選欄位。
 - 文件與範本全部使用相對連結，不寫 repository 絕對路徑。
 

@@ -13,7 +13,7 @@
 - 維持 `reference-to-ui-spec`、`build-ui-from-spec`、`visual-ui-qa` 三個頂層 UI workflow，不新增第四個 skill entry。
 - 三個 canonical skill 目錄同時供 Claude Code 與 Codex 使用，不建立平台副本。
 - 所有 repository 文件與模板使用相對連結，不寫本機或 repository 絕對路徑。
-- `sg-dev-skills` 版本由 `0.9.0` 提升為 `0.10.0`，兩份 plugin manifests 與兩份 marketplaces 同步。
+- `sg-dev-skills` 版本由 `0.9.0` 提升為 `0.10.0`，兩份 plugin manifests 同步；Claude marketplace 只更新文字描述，Codex marketplace 維持既有 schema。
 - 不加入綁定單一瀏覽器、前端框架、測試 runner 或部署平台的實作。
 - 每項 skill 行為先以 failing contract check 證明缺口，再寫最小內容使其通過。
 
@@ -90,7 +90,7 @@ GROUPS = {
 `release` 另外驗證：
 
 - 兩份 `plugins/sg-dev-skills` manifests 都是 `0.10.0`。
-- 根層兩份 marketplaces 的 `sg-dev-skills` 版本都是 `0.10.0`。
+- Claude marketplace 的 `sg-dev-skills` 描述包含新增能力。
 - Claude manifest 仍為 10 個 skill entries。
 - 追蹤中的新增 UI 文件不包含目前 checkout 的絕對路徑字串。
 
@@ -403,7 +403,6 @@ git commit -m "feat: 新增自動視覺回歸工作流"
 - Modify: `plugins/sg-dev-skills/.claude-plugin/plugin.json`
 - Modify: `plugins/sg-dev-skills/.codex-plugin/plugin.json`
 - Modify: `.claude-plugin/marketplace.json`
-- Modify: `.agents/plugins/marketplace.json`
 - Modify: `README.md`
 - Modify: `docs/CONVENTIONS.md`
 - Modify: `docs/HANDOFF.md`
@@ -422,14 +421,14 @@ Run:
 python3 scripts/check-ui-workflows.py release
 ```
 
-Expected: exit 1，列出四份 version metadata 尚未同步。
+Expected: exit 1，列出兩份 plugin manifest version 與 Claude marketplace 描述尚未同步。
 
 - [ ] **Step 2: 同步版本與描述**
 
 - 兩份 plugin manifest 改為 `0.10.0`。
-- 兩份 marketplace 的 `sg-dev-skills` entry 改為 `0.10.0`。
 - Claude skills array 仍維持 10 entries。
 - 描述加入 UI evidence、design system 與 regression，但不窮舉內部 reference。
+- Claude marketplace 同步使用者可見描述；Codex marketplace 不新增 schema 未定義的 version 或 description。
 
 - [ ] **Step 3: 更新 repository docs**
 
@@ -462,7 +461,7 @@ Expected: 兩個 commands 都 exit 0。
 - [ ] **Step 6: Commit release metadata**
 
 ```bash
-git add .claude-plugin/marketplace.json .agents/plugins/marketplace.json README.md docs/CONVENTIONS.md docs/HANDOFF.md docs/TOPIC-MAP.md docs/superpowers/plans/2026-07-28-three-layer-ui-generation.md plugins/sg-dev-skills/.claude-plugin/plugin.json plugins/sg-dev-skills/.codex-plugin/plugin.json scripts/hooks/pre-commit
+git add .claude-plugin/marketplace.json README.md docs/CONVENTIONS.md docs/HANDOFF.md docs/TOPIC-MAP.md docs/superpowers/plans/2026-07-28-three-layer-ui-generation.md plugins/sg-dev-skills/.claude-plugin/plugin.json plugins/sg-dev-skills/.codex-plugin/plugin.json scripts/hooks/pre-commit
 git commit -m "docs: 發佈 UI 證據與回歸能力"
 ```
 

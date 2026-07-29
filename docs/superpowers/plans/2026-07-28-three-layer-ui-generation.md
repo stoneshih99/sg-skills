@@ -530,7 +530,7 @@ git diff --check
 git status --short --branch
 ```
 
-Expected: all validators pass; the approved worktree is clean and, relative to `origin/main`, ahead and behind are both 0.
+Expected: all validators pass; the approved worktree is clean and, relative to `origin/main`, behind is 0 while ahead includes the feature commits.
 
 - [ ] **Step 2: Run an isolated Codex local-install smoke**
 

@@ -1,7 +1,7 @@
 {
   "name": "sg-dev-skills",
-  "description": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式的實作決策與坑，以及 UI 參考轉規格、依規格實作、視覺 QA。",
-  "version": "0.9.0",
+  "description": "通用軟體工程 Agent Skills（不限遊戲）：git、shell、Clean Code、除錯方法論、regex、CLI 設計、設計模式，以及 UI 證據、規格、設計系統、實作與視覺回歸工作流。",
+  "version": "0.10.0",
   "author": {
     "name": "Stone",
     "email": "seaglegames@gmail.com"

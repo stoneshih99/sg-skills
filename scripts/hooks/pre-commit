@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# sg-skills pre-commit：commit 前自動跑連結、雙平台結構與 Claude plugin validate。
+# sg-skills pre-commit：commit 前自動跑 repository 契約與 Claude plugin validate。
 # 掛法：git config core.hooksPath scripts/hooks（重 clone 後跑一次）。
 set -euo pipefail
 
@@ -8,6 +8,9 @@ python3 scripts/check-links.py
 
 echo "[pre-commit] 雙平台 plugin 相容檢查…"
 python3 scripts/check-plugin-compat.py
+
+echo "[pre-commit] UI workflow 契約檢查…"
+python3 scripts/check-ui-workflows.py
 
 if command -v claude >/dev/null 2>&1; then
   echo "[pre-commit] Claude plugin validate…"
