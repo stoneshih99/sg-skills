@@ -11,6 +11,7 @@
 | game-dev | `game-tooling` | debug- / perf- / telemetry- |
 | game-dev | `game-production` | milestone- / build- / content- / art- / audio- / anim- / loc- / ui- / platform- |
 | game-dev | `game-diagrams` | （四種圖型） |
+| game-dev | `ship-small-game` | 小型完整遊戲總控 workflow：階段、範圍、交接、核准與證據；專業決策路由既有 hubs |
 | unity-dev | `unity-scripting` | script- / input- / asset- / test- / editor- |
 | unity-dev | `unity-runtime` | physics- / net- / shader- / anim- / audio- / ui- / 2d- |
 | unity-dev | `unity-optimization` | perf- / build- |

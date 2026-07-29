@@ -1,7 +1,7 @@
 {
   "name": "sg-game-dev-skills",
-  "description": "個人用遊戲開發 Agent Skills：工具、架構、工作流、畫圖、企畫。引擎中立。",
-  "version": "0.26.1",
+  "description": "個人用遊戲開發 Agent Skills：工具、架構、工作流、畫圖、企畫與完整遊戲交付 Build。引擎中立。",
+  "version": "0.27.0",
   "author": {
     "name": "Stone",
     "email": "seaglegames@gmail.com"
@@ -11,12 +11,12 @@
   "interface": {
     "displayName": "SG Game Dev Skills",
     "shortDescription": "引擎中立的遊戲設計與開發決策",
-    "longDescription": "個人用遊戲開發 Agent Skills：工具、架構、工作流、畫圖、企畫。引擎中立。",
+    "longDescription": "個人用遊戲開發 Agent Skills：工具、架構、工作流、畫圖、企畫與完整遊戲交付 Build。引擎中立。",
     "developerName": "Stone",
     "category": "Developer Tools",
     "capabilities": ["Guidance"],
     "defaultPrompt": [
-      "請用 sg-game-dev-skills 協助我分析這個遊戲系統的設計取捨。"
+      "請用 sg-game-dev-skills 協助我規劃完整遊戲並交付可驗收的 Build。"
     ]
   }
 }

@@ -8,11 +8,11 @@
 
 | Plugin | 版本 | 結構 | 定位 |
 |--------|------|------|------|
-| **sg-game-dev-skills**（plugins/sg-game-dev-skills） | 0.26.1 | 5 hub / 87 篇 | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
+| **sg-game-dev-skills**（plugins/sg-game-dev-skills） | 0.27.0 | 5 hub + 1 workflow / 90 篇 reference | 引擎中立遊戲（What/Why）。一人工作室的虛擬部門顧問團 |
 | **sg-unity-dev-skills**（plugins/sg-unity-dev-skills） | 0.16.3 | 3 hub / 36 篇 | Unity 具體（How in Unity）。接住 game-dev 留白 |
 | **sg-dev-skills**（plugins/sg-dev-skills） | 0.10.0 | 10 skills / 26 篇 | 通用工程，加上 UI 證據／規格／設計系統、實作與視覺回歸 workflow |
 
-合計 18 skills、149 篇 reference。
+合計 19 skills、152 篇 reference。
 
 ## monorepo 合併（2026-07-24）
 
@@ -27,7 +27,7 @@
 
 改動後必跑的檢查已由 pre-commit hook 強制執行（「機器可查的進 hook」）：
 
-- **`scripts/hooks/pre-commit`**（版控追蹤）：commit 前自動跑 `check-links.py`、`check-plugin-compat.py`、`check-ui-workflows.py` 與 `claude plugin validate .`，失敗就擋下 commit。`claude` 不在 PATH 時只略過官方 Claude validate，其餘檢查照跑。
+- **`scripts/hooks/pre-commit`**（版控追蹤）：commit 前自動跑 `check-links.py`、`check-plugin-compat.py`、`check-ui-workflows.py`、`check-game-delivery-workflow.py` 與 `claude plugin validate .`，失敗就擋下 commit。`claude` 不在 PATH 時只略過官方 Claude validate，其餘檢查照跑。
 - **掛法靠 `core.hooksPath`**（非 `.git/hooks/`，故進版控、重 clone 也在）。**重 clone 後跑一次**：`git config core.hooksPath scripts/hooks`。略過檢查用 `git commit --no-verify`。
 - 兩條路徑都測過：正常 commit 通過、故意斷鏈 exit 1 擋下。
 
@@ -62,6 +62,7 @@
 - [x] design-patterns hub 的 sonnet probe：8 題 6/8（2026-07-26）。跨 plugin 邊界全對（FSM 遊戲 AI→game-architecture、事件系統設計→game-architecture）。兩個 miss 已處置：①「if-else 重複」落 clean-code＝合理軟邊界（TOPIC-MAP 已記，clean-code smell 表加「重複條件分支」列互接 behavioral-selection）；②「Unity 服務定位」落 unity-runtime＝unity-scripting description 列舉缺漏，補「服務定位 vs singleton」後複測 3/3 落 unity-scripting。
 - [x] design-patterns 瘦身（2026-07-26）：三篇壓成單篇（砍 structural——最接近「Claude 已知」的純教學），description 328→183 字元。**判準記下來**：內容值不值得進 skill，看它是「Claude 會說錯」（版本漂移/架構誤解，最值得）、「知道但不會主動說」（平台坑/設定細節，值得），還是「知道且會說、只差預設值」（用 CLAUDE.md 一行即可，不該開 hub）。瘦身後複測：狀態機實作 3/3 design-patterns、遊戲 AI FSM 3/3 game-architecture、通用 singleton 3/3 design-patterns、Unity 服務定位 2/2 unity-scripting。
 - [x] dev 新增三階段 UI workflow，並補齊 UI 證據捕捉、design system 抽取、可測實作交接與自動視覺回歸（2026-07-29）。
+- [x] game-dev 新增小型完整遊戲總控 workflow，涵蓋七階段、部門交接與 Release Candidate Build（2026-07-29）。
 - [ ] 各 plugin 依實戰回饋擴充 references（三 plugin 皆無既定候選，實戰需求驅動）。
 - [ ] unity-runtime 若再長，考慮 sub-split。
 

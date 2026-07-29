@@ -29,6 +29,8 @@
 
 同一階段的子流程優先放在既有 workflow 的 `references/` 與 `templates/`，由 `SKILL.md` 模式路由。例如 UI 證據捕捉、設計系統抽取與自動視覺回歸分別屬於現有參考／QA 階段，不另增入口。
 
+總控 workflow 只負責階段、範圍、交接、核准與證據；不得複製既有專業 hub 的內容，專業決策應路由回原 hub。
+
 ### hub description 的撰寫原則
 
 description 是**使用者會說出口的話**，不是目錄——「讀哪一篇」由路由表負責，description 只需讓模型決定「要不要開這個 hub」。
@@ -54,10 +56,11 @@ description 是**使用者會說出口的話**，不是目錄——「讀哪一�
 1. `python3 scripts/check-links.py`——全 monorepo 連結檢查。
 2. `python3 scripts/check-plugin-compat.py`——雙平台 marketplace、manifest 與 skill 結構檢查。
 3. `python3 scripts/check-ui-workflows.py`——UI workflow 能力、資源與版本契約。
-4. frontmatter description ≤ 1536、hub description ≤ ~400。
-5. `claude plugin validate .`
+4. `python3 scripts/check-game-delivery-workflow.py`——完整遊戲交付 workflow 契約。
+5. frontmatter description ≤ 1536、hub description ≤ ~400。
+6. `claude plugin validate .`
 
-第 1、2、3、5 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，失敗擋下 commit）——「機器可查的進 hook」。第 4 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
+第 1、2、3、4、6 項由 **pre-commit hook 自動強制**（`scripts/hooks/pre-commit`，失敗擋下 commit）——「機器可查的進 hook」。第 5 項是人工判斷，仍需自查。重 clone 後跑一次掛上：`git config core.hooksPath scripts/hooks`；略過用 `git commit --no-verify`。
 
 ## 發佈
 

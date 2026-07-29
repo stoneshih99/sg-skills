@@ -12,6 +12,9 @@ python3 scripts/check-plugin-compat.py
 echo "[pre-commit] UI workflow 契約檢查…"
 python3 scripts/check-ui-workflows.py
 
+echo "[pre-commit] 完整遊戲交付 workflow 契約檢查…"
+python3 scripts/check-game-delivery-workflow.py
+
 if command -v claude >/dev/null 2>&1; then
   echo "[pre-commit] Claude plugin validate…"
   claude plugin validate .
