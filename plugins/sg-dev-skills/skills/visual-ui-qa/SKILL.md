@@ -1,6 +1,6 @@
 ---
 name: visual-ui-qa
-description: Use when 已完成或可執行的 UI 需要規格比對、視覺驗收、響應式檢查、可及性檢查，或正在調查跑版、overflow、focus、互動狀態與視覺回歸問題
+description: Use when 已完成或可執行的 UI 需要規格比對、視覺驗收、響應式或可及性檢查，正在調查跑版、overflow、focus、互動狀態，或需要 screenshot baseline、pixel diff、CI 視覺回歸
 ---
 
 # Visual UI QA
@@ -8,6 +8,15 @@ description: Use when 已完成或可執行的 UI 需要規格比對、視覺驗
 ## 定位
 
 先產生可重現、附證據的診斷，不以直覺取代觀察。預設只驗收與回報；使用者未要求修正時，不修改實作。
+
+## 模式路由
+
+| 使用者目的 | 模式 | 讀取／輸出 |
+|---|---|---|
+| 比對規格、找跑版、檢查 responsive、focus 或互動狀態 | **人工視覺 QA** | 依本檔流程，輸出 [ui-qa-report.md](templates/ui-qa-report.md) |
+| 建立 screenshot baseline、pixel diff、runner 或 CI 視覺測試 | **自動視覺回歸** | 讀 [automated-visual-regression.md](references/automated-visual-regression.md)，輸出 [ui-regression-plan.md](templates/ui-regression-plan.md) |
+
+只有使用者要求修改目標專案時，才在自動模式新增 test、config、baseline 或 CI。
 
 ## 基準確認
 
