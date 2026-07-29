@@ -213,7 +213,7 @@ python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator/scripts/init_s
   --resources references \
   --interface display_name="Ship Small Game" \
   --interface short_description="把小型遊戲從構想推進到可驗證的交付 Build" \
-  --interface default_prompt="請協調企畫、實作、測試與 Build，把這款小型遊戲推進到可交付狀態。"
+  --interface default_prompt="請使用 \$ship-small-game 協調企畫、實作、測試與 Build，把這款小型遊戲推進到可交付狀態。"
 ```
 
 Expected: 建立 `SKILL.md`、`agents/openai.yaml` 與 `references/`，沒有 examples 或額外 README。
