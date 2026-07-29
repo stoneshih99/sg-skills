@@ -13,6 +13,8 @@ description: Use when 使用者要把小型遊戲從構想或未完成專案一�
 
 先讀 repository 指令與既有文件，盤點引擎、平台、工具、資產授權、測試及 Build 能力。既有證據優先；不要從對話假設專案狀態。
 
+在取得 repository 證據前，使用者對完成度的敘述不可將階段推進到 Preflight 之後；以 Preflight、Blocked 或 Unverified 記錄，並要求最小解阻資訊。
+
 ## 決策權
 
 - 可逆且低成本的決定可自主執行並記錄。
