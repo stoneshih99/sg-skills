@@ -85,13 +85,21 @@ Expected: 取得具體 baseline 行為證據；本 task 不修改檔案、不建
 
 - [ ] **Step 1: 寫入 validator**
 
-依 `scripts/check-ui-workflows.py` 的結構建立 checker，固定常數與 groups：
+依 `scripts/check-ui-workflows.py` 的結構建立 checker，固定常數、七階段與 groups：
 
 ```python
 ROOT = Path(__file__).resolve().parent.parent
-GAME_ROOT = ROOT / "plugins/sg-game-dev-skills"
 EXPECTED_VERSION = "0.27.0"
 EXPECTED_SKILL_COUNT = 6
+STAGES = [
+    "Preflight",
+    "Game Contract",
+    "Production Blueprint",
+    "Vertical Slice",
+    "Content Complete",
+    "Quality Complete",
+    "Release Candidate",
+]
 
 GROUPS = {
     "core": {
@@ -135,6 +143,16 @@ GROUPS = {
 }
 ```
 
+`check_core_contract()` 不只找 token，還必須：
+
+- 解析 `stage-gates.md` 的二級 heading，確認七階段順序完全等於 `STAGES`。
+- 在每個 stage block 內依序確認進入條件、必做工作、核准閘門、完成證據、下一階段五欄，並檢查相鄰 stage 的進入與下一階段契約。
+- 在 `Content Complete` 的核准閘門檢查停止新增功能，在 `Quality Complete` 的完成證據檢查程式／完整流程／視覺／效能／存檔／玩測，在 `Release Candidate` 的完成證據檢查可執行 Build。
+- 在 `SKILL.md` 的階段 section 檢查七階段箭頭順序與「不可跳過中間階段」規則。
+- 解析四份模板的 headings 與 Markdown tables；roadmap 須有七階段狀態列，acceptance matrix 須拆開 accepted risk owner 與 reason，production status 須有 `Last Updated`。
+
+`check_routing_contract()` 必須解析 handoff 五欄的順序，以及 recovery table 的三欄與七個情境；不能只驗證 reference 連結存在。
+
 `check_release()` 必須驗證：
 
 ```python
@@ -145,7 +163,9 @@ assert "./skills/ship-small-game" in claude_manifest["skills"]
 assert "完整遊戲" in claude_marketplace_entry["description"]
 ```
 
-實作時不要直接用 `assert`；沿用 UI checker 的 `errors.append(...)`、JSON 錯誤處理、group selection 與 portable path scan。
+portable path scan 以 `git ls-files` 列出追蹤檔案，涵蓋 marketplace metadata、`CLAUDE.md`、`README.md`、`docs/` 與 `plugins/` 內的文字資產；拒絕目前 checkout root 與常見使用者 home／mounted-volume checkout 絕對路徑。checker source 不在掃描範圍，web URL 與 `/usr/bin` 等合理命令不應被誤判。
+
+實作時不要直接用 `assert`；沿用 UI checker 的 `errors.append(...)`、JSON 錯誤處理與 group selection。
 
 - [ ] **Step 2: 驗證未知 group**
 
@@ -303,11 +323,28 @@ Preflight → Game Contract → Production Blueprint → Vertical Slice → Cont
 
 ```markdown
 # Delivery Roadmap
+
 ## Current Stage
+
 ## Stage Status
+
+| Stage | Status | Evidence Or Notes |
+| --- | --- | --- |
+| Preflight | Not Started |  |
+| Game Contract | Not Started |  |
+| Production Blueprint | Not Started |  |
+| Vertical Slice | Not Started |  |
+| Content Complete | Not Started |  |
+| Quality Complete | Not Started |  |
+| Release Candidate | Not Started |  |
+
 ## Work Packages
+
 | ID | Deliverable | Department | Depends On | Verification | Status |
+| --- | --- | --- | --- | --- | --- |
+
 ## Risks And Gates
+
 ## Next Executable Step
 ```
 
@@ -315,21 +352,41 @@ Preflight → Game Contract → Production Blueprint → Vertical Slice → Cont
 
 ```markdown
 # Acceptance Matrix
-| Area | Acceptance | State | Evidence Or Reproduction | Accepted Risk |
-```
 
-area 至少預置 Gameplay、Start-To-End、Visual、Content、Code、Tests、Performance、Save、Build；state 僅允許 Verified、Unverified、Blocked。
+| Area | Acceptance | State | Evidence Or Reproduction | Accepted Risk Owner | Accepted Risk Reason |
+| --- | --- | --- | --- | --- | --- |
+| Gameplay |  | Unverified |  |  |  |
+| Start-To-End |  | Unverified |  |  |  |
+| Visual |  | Unverified |  |  |  |
+| Content |  | Unverified |  |  |  |
+| Code |  | Unverified |  |  |  |
+| Tests |  | Unverified |  |  |  |
+| Performance |  | Unverified |  |  |  |
+| Save |  | Unverified |  |  |  |
+| Build |  | Unverified |  |  |  |
+
+State 僅允許 Verified、Unverified、Blocked。
+```
 
 `production-status.md` 固定 headings：
 
 ```markdown
 # Production Status
+
+## Last Updated
+
 ## Current Stage
+
 ## Completed
+
 ## In Progress
+
 ## Next
+
 ## Blocked
+
 ## Recent Decisions And Scope Changes
+
 ## Resume Here
 ```
 
@@ -405,7 +462,8 @@ git commit -m "feat: 新增小型遊戲總控骨架"
 用決策表定義：
 
 ```markdown
-| Condition | State | Required action |
+| Condition | Disposition | Required action |
+| --- | --- | --- |
 | Missing engine/SDK/account/build tool | Blocked | 記錄缺口與最小解阻步驟 |
 | Asset provenance unclear | Blocked for RC | 使用合法暫代資產或取得授權 |
 | Verification cannot run | Unverified | 保留命令與所需環境 |
@@ -656,22 +714,10 @@ assert "./skills/ship-small-game" in claude["skills"]
 print("game delivery manifest: pass")
 PY
 
-python3 - <<'PY'
-from pathlib import Path
-
-root = str(Path.cwd().resolve())
-skill = Path("plugins/sg-game-dev-skills/skills/ship-small-game")
-bad = [
-    str(path)
-    for path in skill.rglob("*")
-    if path.is_file() and root in path.read_text(errors="ignore")
-]
-assert not bad, bad
-print("portable paths: pass")
-PY
+python3 scripts/check-game-delivery-workflow.py release
 ```
 
-Expected: 兩項皆印出 pass。
+Expected: manifest snippet 印出 pass，release group 同時驗證發佈 metadata 與 repository 追蹤文字的 portable paths。
 
 - [ ] **Step 3: 執行隔離 Codex local-install smoke**
 

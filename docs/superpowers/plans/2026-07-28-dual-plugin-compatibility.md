@@ -192,9 +192,9 @@ Run:
 
 ```bash
 python3 scripts/check-plugin-compat.py
-python3 /Users/stone/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/sg-game-dev-skills
-python3 /Users/stone/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/sg-unity-dev-skills
-python3 /Users/stone/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/sg-dev-skills
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/sg-game-dev-skills
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/sg-unity-dev-skills
+python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/plugin-creator/scripts/validate_plugin.py" plugins/sg-dev-skills
 ```
 
 Expected: all four commands PASS.
@@ -271,7 +271,7 @@ Use `mktemp -d` and set `CODEX_HOME` only for the smoke-test commands. Do not re
 
 - [ ] **Step 2: Add the local marketplace and three plugins**
 
-Run `codex plugin marketplace add /Volumes/WorkSpace/Projects/Github/sg-skills`, then add all three `<plugin>@sg-skills` identifiers under the isolated `CODEX_HOME`.
+Run `codex plugin marketplace add .` from the repository root, then add all three `<plugin>@sg-skills` identifiers under the isolated `CODEX_HOME`.
 
 Expected: each add command succeeds and `codex plugin list` shows the three plugins.
 

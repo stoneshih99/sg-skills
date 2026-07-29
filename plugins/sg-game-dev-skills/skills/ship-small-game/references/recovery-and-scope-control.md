@@ -2,7 +2,7 @@
 
 遇到受阻、證據不足或中斷時，先依下表保留真實狀態，再執行最小可行的解阻或恢復工作；不要以推測補上 Build、測試或授權證據。
 
-| Condition | State | Required action |
+| Condition | Disposition | Required action |
 |---|---|---|
 | Missing engine/SDK/account/build tool | Blocked | 記錄缺口與最小解阻步驟 |
 | Asset provenance unclear | Blocked for RC | 使用合法暫代資產或取得授權 |

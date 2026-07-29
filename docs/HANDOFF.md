@@ -41,7 +41,7 @@
 
 **unity-dev**：三 hub——unity-scripting（script/input/asset/test/editor）、unity-runtime（physics/net/shader/anim/audio/ui/2d，7 家族、description 已超 ~400 字元準則，**再加家族前先拆 hub**）、unity-optimization（perf/build）。
 
-**dev**：七個通用工程 skills 維持原有邊界；另有三個 UI workflow——`reference-to-ui-spec` 收證據捕捉、頁面規格與設計系統抽取，`build-ui-from-spec` 收依規格實作與可測狀態交接，`visual-ui-qa` 收人工診斷與自動視覺回歸。三入口共用 26 篇 references，後續依實戰需求擴充。
+**dev**：七個通用工程 skills 維持原有邊界；另有三個 UI workflow——`reference-to-ui-spec` 收證據捕捉、頁面規格與設計系統抽取，`build-ui-from-spec` 收依規格實作與可測狀態交接，`visual-ui-qa` 收人工診斷與自動視覺回歸。`sg-dev-skills` 合計 26 篇 references，其中三個 UI workflow 本身合計 3 篇 workflow references，後續依實戰需求擴充。
 
 ## 待辦
 
