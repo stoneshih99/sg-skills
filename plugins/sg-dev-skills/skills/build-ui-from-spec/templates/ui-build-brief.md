@@ -12,9 +12,9 @@
 
 記錄已確認的技術棧、專案 instructions、可執行 scripts 與不可假設的能力。
 
-## Reuse Inventory
+## Design System And Reuse Map
 
-列出必須優先重用的 design tokens、components、assets、資料存取與樣式慣例。
+列出 UI design system、既有 tokens、components、assets、資料存取與樣式慣例；逐項對應可直接重用、需要擴充與確定缺少的部分。
 
 ## Content And Data
 
@@ -23,6 +23,16 @@
 ## Component And State Map
 
 逐一對應元件與 default、hover、focus、loading、empty、error、success 等必要狀態。
+
+## Deterministic Test States
+
+列出需要固定的 data、time、locale、timezone、theme、animation 與 network outcome，以及沿用的 fixture、Storybook、test route 或 mock。
+
+## Verification Triggers
+
+| Viewport／theme | State | Reproduction trigger | Expected stable result |
+|---|---|---|---|
+| | | | |
 
 ## Responsive Requirements
 

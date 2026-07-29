@@ -11,7 +11,7 @@ description: Use when 使用者已有 UI spec、wireframe、設計 brief 或明�
 
 ## 專案先行
 
-在新增元件前，先讀取專案 instructions、design tokens、既有 components、scripts 與 tests。確認目標 route 或 screen、資料來源和可重用的元件；現有系統能滿足需求時，先重用而非另建。
+在新增元件前，先讀取專案 instructions、UI design system、design tokens、既有 components、scripts 與 tests。建立需求到現有 token／component 的 reuse map；現有系統能滿足需求時，先重用而非另建。
 
 ## Build Brief
 
@@ -33,15 +33,20 @@ description: Use when 使用者已有 UI spec、wireframe、設計 brief 或明�
 
 ## 驗證
 
-依 build brief 的實際 commands 啟動並檢查 console。驗證目標 viewport、鍵盤操作與焦點可見性，以及 loading、empty、error 和 success 狀態；同時確認 reduced motion 生效。將實際跑過的 commands、檢查過的畫面或截圖與尚未驗證項目分開記錄。
+依 build brief 的實際 commands 啟動並檢查 console。驗證目標 viewport、鍵盤操作與焦點可見性，以及 loading、empty、error 和 success 狀態；同時確認 reduced motion 生效。
+
+需要 visual regression 時，優先沿用 fixture、Storybook、test route 或 mock，讓資料、時間、locale、timezone、theme、animation 與 network outcome 中必要的項目 deterministic。記錄每個 viewport／state／theme 的可重現觸發方式；不要為單次畫面另建抽象框架。
+
+將實際跑過的 commands、檢查過的畫面或截圖與尚未驗證項目分開記錄。
 
 ## 交付
 
-交付時列出改動、可重現的驗證證據與未驗證項目。只有使用者明確要求時才部署；未部署不得暗示已可發佈。
+交付時列出改動、可重現的驗證證據、各狀態的觸發方式與未穩定項目。只有使用者明確要求時才部署；未部署不得暗示已可發佈。
 
 ## 常見錯誤
 
 - 忽略既有 design system 與 components，先造新元件。
 - 只完成 happy path，漏掉 loading、empty、error 或 focus 狀態。
+- 畫面可手動操作，但沒有可重現觸發方式，導致回歸測試不穩定。
 - 用靜態截圖冒充可執行且已驗證的介面。
 - 未確認 runtime 或工具能力就擅自換 stack 或部署。
